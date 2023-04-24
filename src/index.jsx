@@ -8,12 +8,14 @@ import Place from './pages/Place'
 import Error from './pages/Error'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import GlobalStyle from './utils/style/GlobalStyle'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Router>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

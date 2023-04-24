@@ -1,8 +1,8 @@
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import PlaceImg from '../../assets/Background_component.png'
 
 function Place() {
-  const { id } = useParams()
+  //   const { id } = useParams()
   return (
     <div>
       <section>

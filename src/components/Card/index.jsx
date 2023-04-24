@@ -1,5 +1,5 @@
-import Place from '../../assets/Background_component.png'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 function Card({ cover, title, location }) {
   return (
@@ -11,6 +11,12 @@ function Card({ cover, title, location }) {
       </Link>
     </div>
   )
+}
+
+Card.propTypes = {
+  cover: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
 }
 
 export default Card
