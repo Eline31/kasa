@@ -3,7 +3,7 @@ import colors from './colors'
 
 const GlobalStyle = createGlobalStyle`
 * {
-  font-family: 'Montserra', Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: ${colors.primary}
 }
 body {
