@@ -30,6 +30,7 @@ const Info = styled.p`
   padding: 20px;
   background: ${colors.secondary};
   margin: 0px;
+  border-radius: 0px 0px 5px 5px;
 `
 
 function Collapse({ title, info }) {
