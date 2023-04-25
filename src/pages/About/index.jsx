@@ -1,10 +1,13 @@
-import Image from '../../assets/About.png'
+import ImgAbout from '../../assets/About.png'
+import Banner from '../../components/Banner'
+import Collapse from '../../components/Collapse'
+import { useState, setState } from 'react'
 
 function About() {
   return (
     <div>
-      <img src={Image} alt="Montagnes" />
-      <div>Content</div>
+      <Banner picture={ImgAbout} alt="Montagnes" />
+      <Collapse title="Equipement" info="info" />
     </div>
   )
 }

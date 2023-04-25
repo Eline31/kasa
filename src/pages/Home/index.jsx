@@ -3,41 +3,7 @@ import data from '../../data/data.json'
 import BgHome from '../../assets/Home.png'
 import styled from 'styled-components'
 import colors from '../../utils/style/Colors'
-
-/**Bannière de haut de page */
-const Title = styled.h1`
-  color: black;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  z-index: 1;
-  font-weight: 500;
-  font-size: 2.5em;
-  margin: 0px;
-  padding: 20px;
-  box-sizing: border-box;
-`
-
-const ImgBG = styled.img`
-  width: 100%;
-  opacity: 0.7;
-  object-fit: cover;
-  border-radius: 25px;
-`
-
-const Banner = styled.section`
-  display: flex;
-  position: relative;
-  margin: 0px 0px 30px 0px;
-  background: black;
-  border-radius: 25px;
-  max-height: 220px;
-  border-box: box-sizing;
-`
+import Banner from '../../components/Banner'
 
 /**Section de contenus avec cartes logement */
 const CardsContainer = styled.section`
@@ -55,10 +21,11 @@ const CardsContainer = styled.section`
 function Home() {
   return (
     <>
-      <Banner>
-        <Title>Chez vous, partout et ailleurs</Title>
-        <ImgBG src={BgHome} alt="Falaise" />
-      </Banner>
+      <Banner
+        picture={BgHome}
+        alt="Falaises"
+        title="Chez vous, partout et ailleurs"
+      />
       <CardsContainer>
         {data.map((place, index) => (
           <Card
