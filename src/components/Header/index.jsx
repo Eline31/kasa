@@ -12,28 +12,26 @@ const NavContainer = styled.nav`
   flex-direction: row;
   flex-wrap: no-wrap;
   align-items: center;
-`
-
-const HeaderLogo = styled.img`
-  max-height: 70px;
-  max-width: 150px;
-`
-
-const Menu = styled.div`
-  width: 100%;
-  text-align: end;
+  img {
+    max-height: 70px;
+    max-width: 150px;
+  }
+  div {
+    width: 100%;
+    text-align: end;
+  }
 `
 
 function Header() {
   return (
     <NavContainer className="Home-header">
       <Link to="/">
-        <HeaderLogo src={logo} className="Home-logo" alt="logo" />
+        <img src={logo} className="Home-logo" alt="logo" />
       </Link>
-      <Menu>
+      <div>
         <StyledLink to="/">Accueil</StyledLink>
         <StyledLink to="/About">À propos</StyledLink>
-      </Menu>
+      </div>
     </NavContainer>
   )
 }

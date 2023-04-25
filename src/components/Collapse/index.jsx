@@ -13,6 +13,7 @@ const CollapseContainer = styled.button`
   border: none;
   border-radius: 5px;
   height: 50px;
+  margin: 10px 0px;
   h2 {
     font-family: 'Montserrat';
     color: white;

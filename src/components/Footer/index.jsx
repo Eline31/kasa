@@ -9,24 +9,22 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-`
-
-const Logo = styled.img`
-  height: 40px;
-  padding: 20px;
-`
-
-const Right = styled.p`
-  font-weight: 500;
-  font-size: 24px;
-  color: white;
+  img {
+    height: 40px;
+    padding: 20px;
+  }
+  p {
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+  }
 `
 
 function Footer() {
   return (
     <FooterContainer>
-      <Logo src={logo} alt="logo" />
-      <Right>© 2020 Kasa. All rights reserved</Right>
+      <img src={logo} alt="logo" />
+      <p>© 2020 Kasa. All rights reserved</p>
     </FooterContainer>
   )
 }

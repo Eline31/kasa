@@ -15,33 +15,31 @@ const CardContainer = styled.div`
   box-sizing: border-box;
   padding: 10px;
   display: flex;
-`
-
-const CardImg = styled.img`
-  object-fit: cover;
-  width: 320px;
-  border-radius: 10px;
-  height: 213px;
-`
-
-const CardTitle = styled.h2`
-  color: white;
-  height: 84px;
-  box-sizing: border-box;
-  font-weight: 500;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  text-align: start;
-  justify-content: start;
+  img {
+    object-fit: cover;
+    width: 320px;
+    border-radius: 10px;
+    height: 213px;
+  }
+  h2 {
+    color: white;
+    height: 84px;
+    box-sizing: border-box;
+    font-weight: 500;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    text-align: start;
+    justify-content: start;
+  }
 `
 
 function Card({ cover, title }) {
   return (
     <CardContainer>
       <Link to="/place/:id">
-        <CardImg src={cover} alt="Intérieur d'un logement" />
-        <CardTitle>{title}</CardTitle>
+        <img src={cover} alt="Intérieur d'un logement" />
+        <h2>{title}</h2>
       </Link>
     </CardContainer>
   )

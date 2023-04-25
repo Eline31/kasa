@@ -10,4 +10,5 @@ export const StyledLink = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
+  ${(props) => props.$isActive && `text-decoration: underline`}
 `
