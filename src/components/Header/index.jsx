@@ -4,16 +4,24 @@ import styled from 'styled-components'
 import { StyledLink } from '../../utils/style/Atoms'
 
 const NavContainer = styled.nav`
-  padding: 40px 100px;
+  padding: 40px 0px;
+  width: 100%;
   height: 70px;
+  min-height: 47px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: no-wrap;
   align-items: center;
 `
 
 const HeaderLogo = styled.img`
-  height: 70px;
+  max-height: 70px;
+  max-width: 150px;
+`
+
+const Menu = styled.div`
+  width: 100%;
+  text-align: end;
 `
 
 function Header() {
@@ -22,12 +30,10 @@ function Header() {
       <Link to="/">
         <HeaderLogo src={logo} className="Home-logo" alt="logo" />
       </Link>
-      <div>
-        <ul>
-          <StyledLink to="/">Accueil</StyledLink>
-          <StyledLink to="/About">À propos</StyledLink>
-        </ul>
-      </div>
+      <Menu>
+        <StyledLink to="/">Accueil</StyledLink>
+        <StyledLink to="/About">À propos</StyledLink>
+      </Menu>
     </NavContainer>
   )
 }
