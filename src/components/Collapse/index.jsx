@@ -28,6 +28,7 @@ const CollapseContainer = styled.button`
 const Info = styled.p`
   font-size: 18px;
   padding: 0px 20px;
+  width: 100%;
 `
 
 function Collapse({ title, info }) {
