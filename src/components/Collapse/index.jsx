@@ -13,7 +13,7 @@ const CollapseContainer = styled.button`
   border: none;
   border-radius: 5px;
   height: 50px;
-  margin: 10px 0px;
+  margin: 10px 0px 0px 0px;
   h2 {
     font-family: 'Montserrat';
     color: white;
@@ -27,8 +27,9 @@ const CollapseContainer = styled.button`
 
 const Info = styled.p`
   font-size: 18px;
-  padding: 0px 20px;
-  width: 100%;
+  padding: 20px;
+  background: ${colors.secondary};
+  margin: 0px;
 `
 
 function Collapse({ title, info }) {
