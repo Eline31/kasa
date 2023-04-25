@@ -1,4 +1,4 @@
-import { useState, setState } from 'react'
+import { useState } from 'react'
 import arrow from '../../assets/arrow.png'
 import styled from 'styled-components'
 import colors from '../../utils/style/Colors'
@@ -25,15 +25,21 @@ const CollapseContainer = styled.button`
   }
 `
 
-function Collapse({ title }) {
-  const [isOpen, setIsOpen] = useState(false)
-  //   const [isDown, rotateArrow] = useState(0)
+const Info = styled.p`
+  font-size: 18px;
+  padding: 0px 20px;
+`
 
+function Collapse({ title, info }) {
+  const [isOpen, setIsOpen] = useState(false)
   return (
-    <CollapseContainer onClick={() => setIsOpen(!isOpen)}>
-      <h2>{title}</h2>
-      <img src={arrow} alt="flèche vers le bas" />
-    </CollapseContainer>
+    <>
+      <CollapseContainer onClick={() => setIsOpen(!isOpen)}>
+        <h2>{title}</h2>
+        <img src={arrow} alt="flèche vers le bas" />
+      </CollapseContainer>
+      {isOpen && <Info>{info}</Info>}
+    </>
   )
 }
 
