@@ -2,6 +2,7 @@ import logo from '../../assets/LOGO-1.svg'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { StyledLink } from '../../utils/style/Atoms'
+import { useState } from 'react'
 
 const NavContainer = styled.nav`
   padding: 40px 0px;
@@ -23,16 +24,24 @@ const NavContainer = styled.nav`
 `
 
 function Header() {
+  const [select, setSelect] = useState(false)
+
   return (
-    <NavContainer className="Home-header">
-      <Link to="/">
-        <img src={logo} className="Home-logo" alt="logo" />
-      </Link>
-      <div>
-        <StyledLink to="/">Accueil</StyledLink>
-        <StyledLink to="/About">À propos</StyledLink>
-      </div>
-    </NavContainer>
+    <>
+      <NavContainer className="Home-header">
+        <Link to="/">
+          <img src={logo} className="Home-logo" alt="logo" />
+        </Link>
+        <div>
+          <StyledLink to="/" onClick={() => setSelect(!select)}>
+            Accueil
+          </StyledLink>
+          <StyledLink to="/About" onClick={() => setSelect(!select)}>
+            À propos
+          </StyledLink>
+        </div>
+      </NavContainer>
+    </>
   )
 }
 
