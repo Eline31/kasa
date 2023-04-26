@@ -7,7 +7,10 @@ const GlobalStyle = createGlobalStyle`
   color: ${colors.primary}
 }
 body {
-    margin: 0px 100px;  
+    margin: 0px;  
+}
+footer {
+  margin: 0px;
 }
 `
 

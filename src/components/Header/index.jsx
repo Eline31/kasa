@@ -6,13 +6,13 @@ import { useState } from 'react'
 
 const NavContainer = styled.nav`
   padding: 40px 0px;
-  width: 100%;
   height: 70px;
   min-height: 47px;
   display: flex;
   flex-direction: row;
   flex-wrap: no-wrap;
   align-items: center;
+  margin: 0px 100px;
   img {
     max-height: 70px;
     max-width: 150px;

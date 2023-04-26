@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const BannerContainer = styled.section`
   display: flex;
   position: relative;
-  margin: 0px 0px 30px 0px;
+  margin: 0px 100px 30px 100px;
   background: black;
   border-radius: 25px;
   max-height: 220px;
