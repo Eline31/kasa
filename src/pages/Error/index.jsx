@@ -5,6 +5,7 @@ const ErrorContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0px 100px;
   h1 {
     font-size: 288px;
     font-weight: 700;
@@ -19,7 +20,7 @@ const ErrorContainer = styled.div`
 const BackHomepage = styled(Link)`
   font-size: 18px;
   text-decoration: underline;
-  margin: 100px 0px;
+  margin: 100px 0px 50px 0px;
 `
 
 function Error() {
