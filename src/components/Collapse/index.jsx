@@ -18,11 +18,12 @@ const CollapseContainer = styled.button`
     font-family: 'Montserrat';
     color: white;
   }
-  :active {
+  ${(props) =>
+    props.$isOpen &&
+    `
     img {
-      transform: rotate(180deg);
-    }
-  }
+        transform: rotate(180deg);
+    }`}
 `
 
 const Info = styled.p`
@@ -37,11 +38,20 @@ function Collapse({ title, info }) {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <>
-      <CollapseContainer onClick={() => setIsOpen(!isOpen)}>
-        <h2>{title}</h2>
-        <img src={arrow} alt="flèche vers le bas" />
-      </CollapseContainer>
-      {isOpen && <Info>{info}</Info>}
+      {!isOpen ? (
+        <CollapseContainer onClick={() => setIsOpen(!isOpen)}>
+          <h2>{title}</h2>
+          <img src={arrow} alt="flèche vers le bas" />
+        </CollapseContainer>
+      ) : (
+        <>
+          <CollapseContainer onClick={() => setIsOpen(!isOpen)} $isOpen>
+            <h2>{title}</h2>
+            <img src={arrow} alt="flèche vers le haut" />
+          </CollapseContainer>
+          {isOpen && <Info>{info}</Info>}
+        </>
+      )}
     </>
   )
 }
