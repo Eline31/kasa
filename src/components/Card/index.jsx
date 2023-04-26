@@ -12,7 +12,6 @@ const CardContainer = styled.div`
     ${colors.primary} 65%,
     rgba(0, 0, 0, 0.8) 125%
   );
-  box-sizing: border-box;
   padding: 10px;
   display: flex;
   img {
@@ -24,7 +23,6 @@ const CardContainer = styled.div`
   h2 {
     color: white;
     height: 84px;
-    box-sizing: border-box;
     font-weight: 500;
     font-size: 18px;
     display: flex;

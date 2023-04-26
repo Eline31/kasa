@@ -1,12 +1,19 @@
 // import { useParams } from 'react-router-dom'
-import PlaceImg from '../../assets/Background_component.png'
+// import PlaceImg from '../../assets/Background_component.png'
+import Carrousel from '../../components/Carrousel'
+import styled from 'styled-components'
+
+const ComponentContainer = styled.div``
 
 function Place() {
   //   const { id } = useParams()
   return (
     <div>
       <section>
-        <img src={PlaceImg} alt="Intérieur d'un logement" />
+        <ComponentContainer>
+          <Carrousel />
+        </ComponentContainer>
+        {/* <img src={PlaceImg} alt="Intérieur d'un logement" /> */}
         <h1>Titre</h1>
         <p>Location</p>
         <p>Tags</p>

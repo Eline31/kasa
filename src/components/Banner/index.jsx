@@ -8,7 +8,6 @@ const BannerContainer = styled.section`
   background: black;
   border-radius: 25px;
   max-height: 220px;
-  border-box: box-sizing;
   h1 {
     color: black;
     width: 100%;
@@ -23,7 +22,6 @@ const BannerContainer = styled.section`
     font-size: 2.5em;
     margin: 0px;
     padding: 20px;
-    box-sizing: border-box;
   }
   img {
     width: 100%;
