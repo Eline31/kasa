@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import colors from '../../utils/style/Colors'
@@ -14,6 +14,7 @@ const CardContainer = styled.div`
   );
   padding: 10px;
   display: flex;
+  flex-direction: column;
   img {
     object-fit: cover;
     width: 320px;
@@ -35,10 +36,8 @@ const CardContainer = styled.div`
 function Card({ cover, title }) {
   return (
     <CardContainer>
-      <Link to="/place/:id">
-        <img src={cover} alt="Intérieur d'un logement" />
-        <h2>{title}</h2>
-      </Link>
+      <img src={cover} alt="Intérieur d'un logement" />
+      <h2>{title}</h2>
     </CardContainer>
   )
 }

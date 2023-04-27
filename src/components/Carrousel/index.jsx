@@ -2,7 +2,8 @@ import data from '../../data/data.json'
 import arrowleft from '../../assets/arrow_left.png'
 import arrowright from '../../assets/arrow_right.png'
 import styled from 'styled-components'
-import img from '../../assets/Background_component.png'
+import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 const CarrouselContainer = styled.div`
   display: flex;
@@ -10,6 +11,14 @@ const CarrouselContainer = styled.div`
   height: 410px;
   margin: 0px 100px;
   border-radius: 25px;
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+  }
+`
+
+const BtnSlider = styled.button`
   button:first-child {
     position: absolute;
     left: 20px;
@@ -28,30 +37,63 @@ const CarrouselContainer = styled.div`
     align-self: center;
     cursor: pointer;
   }
-  img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 25px;
-  }
 `
 
-function Carrousel({ picture, alt }) {
-  console.log(data)
+function BtnSlide({ direction, moveSlide }) {
+  return (
+    <BtnSlider
+      OnClick={moveSlide}
+      className={direction === 'next' ? 'btn-slide next' : 'btn-slide prev'}
+    >
+      <img
+        src={direction === 'next' ? arrowright : arrowleft}
+        alt={
+          direction === 'next'
+            ? 'Flèche indiquant la droite'
+            : 'Flèche indiquant la gauche'
+        }
+      />
+    </BtnSlider>
+  )
+}
+
+function Carrousel({ moveSlide, picture, alt }) {
+  const { id } = useParams()
+  const dataPlace = data.map((place) => place.id === { id })
+  const [slideIndex, setSlideIndex] = useState(1)
+  const nextSlide = () => {
+    if (slideIndex < data.pictures.length) {
+      setSlideIndex(slideIndex + 1)
+    } else if (slideIndex === data.pictures.lenght) {
+      setSlideIndex(1)
+    }
+  }
+  const prevSlide = () => {
+    if (slideIndex > 1) {
+      setSlideIndex(slideIndex - 1)
+    } else if (slideIndex === 1) {
+      setSlideIndex(data.pictures.length)
+    }
+  }
   return (
     <CarrouselContainer>
-      <button>
-        <img src={arrowleft} alt="Flèche indiquant la gauche" />
-      </button>
-      {/* {data.pictures &&
+      <BtnSlide moveSlide={prevSlide} direction={'prev'} onClick={moveSlide}>
+        {/* <img src={arrowleft} alt="Flèche indiquant la gauche" /> */}
+      </BtnSlide>
+      {data.pictures &&
         data.pictures.map((picture, index) => (
-          <img key={`${picture}-${index}`} src={picture} alt="Logement">
-            {picture}
-          </img>
-        ))} */}
-      <img src={picture} alt={alt} />
-      <button>
-        <img src={arrowright} alt="Flèche indiquant la droite" />
-      </button>
+          <div
+            key={`${id}-${index}`}
+            // className={slideIndex === index + 1 ? 'slide active-anim' : 'slide'}
+          >
+            <img src={picture + `${picture}${index + 1}`} alt="Logement">
+              {picture}
+            </img>
+          </div>
+        ))}
+      <BtnSlide moveSlide={nextSlide} direction={'next'}>
+        {/* <img src={arrowright} alt="Flèche indiquant la droite" /> */}
+      </BtnSlide>
     </CarrouselContainer>
   )
 }

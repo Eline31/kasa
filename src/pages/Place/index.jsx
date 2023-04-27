@@ -16,14 +16,14 @@ function Place() {
           <>
             <section>
               <ComponentContainer>
-                {place.pictures &&
-                  place.pictures.map((picture, index) => (
-                    <Carrousel
-                      key={`${picture}-${index}`}
-                      src={picture}
-                      alt="Logement"
-                    />
-                  ))}
+                {/* {place.pictures &&
+                  place.pictures.map((picture, index) => ( */}
+                <Carrousel
+                  // key={`${picture}-${index}`}
+                  // src={picture}
+                  alt="Logement"
+                />
+                {/* ))} */}
               </ComponentContainer>
               <h1>{place.title}</h1>
               <p>{place.location}</p>

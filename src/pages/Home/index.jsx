@@ -4,6 +4,7 @@ import BgHome from '../../assets/Home.png'
 import styled from 'styled-components'
 import colors from '../../utils/style/Colors'
 import Banner from '../../components/Banner'
+import { Link } from 'react-router-dom'
 
 /**Section de contenus avec cartes logement */
 const CardsContainer = styled.section`
@@ -27,12 +28,14 @@ function Home() {
       />
       <CardsContainer>
         {data.map((place, index) => (
-          <Card
-            key={`${place.id}-${index}`}
-            cover={place.cover}
-            title={place.title}
-            location={place.location}
-          />
+          <Link to={`/place/${place.id}`}>
+            <Card
+              key={`${place.id}-${index}`}
+              cover={place.cover}
+              title={place.title}
+              location={place.location}
+            />
+          </Link>
         ))}
       </CardsContainer>
     </>
