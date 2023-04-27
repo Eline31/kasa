@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+// import { Link, useParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import colors from '../../utils/style/Colors'

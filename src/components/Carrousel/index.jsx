@@ -41,10 +41,7 @@ const BtnSlider = styled.button`
 
 function BtnSlide({ direction, moveSlide }) {
   return (
-    <BtnSlider
-      OnClick={moveSlide}
-      className={direction === 'next' ? 'btn-slide next' : 'btn-slide prev'}
-    >
+    <BtnSlider OnClick={moveSlide}>
       <img
         src={direction === 'next' ? arrowright : arrowleft}
         alt={
@@ -57,40 +54,38 @@ function BtnSlide({ direction, moveSlide }) {
   )
 }
 
-function Carrousel({ moveSlide, picture, alt }) {
+function Carrousel({ picture }) {
   const { id } = useParams()
-  const dataPlace = data.map((place) => place.id === { id })
-  const [slideIndex, setSlideIndex] = useState(1)
+  const dataPlace = data.find((place) => {
+    if (place.id === id) {
+      return { place }
+    } else {
+      return "Aucun logement correspondant à cet ID n'a été trouvé"
+    }
+  })
+
+  const [picIndex, setPicIndex] = useState(0)
+
   const nextSlide = () => {
-    if (slideIndex < data.pictures.length) {
-      setSlideIndex(slideIndex + 1)
-    } else if (slideIndex === data.pictures.lenght) {
-      setSlideIndex(1)
+    if (picIndex < dataPlace.pictures.length) {
+      setPicIndex(picIndex + 1)
+    } else if (picIndex === dataPlace.pictures.length) {
+      setPicIndex(1)
     }
   }
   const prevSlide = () => {
-    if (slideIndex > 1) {
-      setSlideIndex(slideIndex - 1)
-    } else if (slideIndex === 1) {
-      setSlideIndex(data.pictures.length)
+    if (picIndex > 1) {
+      setPicIndex(picIndex - 1)
+    } else if (picIndex === 1) {
+      setPicIndex(dataPlace.pictures.length)
     }
   }
   return (
     <CarrouselContainer>
-      <BtnSlide moveSlide={prevSlide} direction={'prev'} onClick={moveSlide}>
+      <BtnSlide direction={'prev'} moveSlide={prevSlide}>
         {/* <img src={arrowleft} alt="Flèche indiquant la gauche" /> */}
       </BtnSlide>
-      {data.pictures &&
-        data.pictures.map((picture, index) => (
-          <div
-            key={`${id}-${index}`}
-            // className={slideIndex === index + 1 ? 'slide active-anim' : 'slide'}
-          >
-            <img src={picture + `${picture}${index + 1}`} alt="Logement">
-              {picture}
-            </img>
-          </div>
-        ))}
+      <img src={picture} alt="Logement" />
       <BtnSlide moveSlide={nextSlide} direction={'next'}>
         {/* <img src={arrowright} alt="Flèche indiquant la droite" /> */}
       </BtnSlide>
