@@ -35,7 +35,7 @@ const CarrouselContainer = styled.div`
   }
 `
 
-function Carrousel() {
+function Carrousel({ picture, alt }) {
   console.log(data)
   return (
     <CarrouselContainer>
@@ -48,7 +48,7 @@ function Carrousel() {
             {picture}
           </img>
         ))} */}
-      <img src={img} alt="test" />
+      <img src={picture} alt={alt} />
       <button>
         <img src={arrowright} alt="Flèche indiquant la droite" />
       </button>
@@ -57,3 +57,62 @@ function Carrousel() {
 }
 
 export default Carrousel
+
+// function Survey() {
+//   const { theme } = useTheme()
+//   const { questionNumber } = useParams()
+//   const questionNumberInt = parseInt(questionNumber)
+//   const prevQuestionNumber = questionNumberInt === 1 ? 1 : questionNumberInt - 1
+//   const nextQuestionNumber = questionNumberInt + 1
+//   const { saveAnswers, answers } = useContext(SurveyContext)
+// const [error, setError] = useState(null)
+
+//   function saveReply(answer) {
+//     saveAnswers({ [questionNumber]: answer })
+//   }
+
+//   const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`)
+//   const { surveyData } = data
+
+//   if (error) {
+//     return <span>Il y a un problème</span>
+//   }
+
+//   return (
+//     <SurveyContainer>
+//       <QuestionTitle theme={theme}>Question {questionNumber}</QuestionTitle>
+//       {isLoading ? (
+//         <Loader />
+//       ) : (
+//         <QuestionContent theme={theme}>
+//           {surveyData && surveyData[questionNumber]}
+//         </QuestionContent>
+//       )}
+//       {answers && (
+//         <ReplyWrapper>
+//           <ReplyBox
+//             onClick={() => saveReply(true)}
+//             isSelected={answers[questionNumber] === true}
+//             theme={theme}
+//           >
+//             Oui
+//           </ReplyBox>
+//           <ReplyBox
+//             onClick={() => saveReply(false)}
+//             isSelected={answers[questionNumber] === false}
+//             theme={theme}
+//           >
+//             Non
+//           </ReplyBox>
+//         </ReplyWrapper>
+//       )}
+//       <LinkWrapper theme={theme}>
+//         <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
+//         {surveyData && surveyData[questionNumberInt + 1] ? (
+//           <Link to={`/survey/${nextQuestionNumber}`}>Suivant</Link>
+//         ) : (
+//           <Link to="/results">Résultats</Link>
+//         )}
+//       </LinkWrapper>
+//     </SurveyContainer>
+//   )
