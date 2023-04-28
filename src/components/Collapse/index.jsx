@@ -41,6 +41,7 @@ const Info = styled.div`
   border-radius: 0px 0px 5px 5px;
   display: flex;
   flex-direction: column;
+  height: 100%;
 `
 
 function Collapse({ title, info }) {

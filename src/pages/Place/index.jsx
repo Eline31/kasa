@@ -26,7 +26,10 @@ const PlacePresentation = styled.section`
 
 const Details = styled.section`
   display: flex;
-  margin: 0px 90px 30px 90px;
+  margin: 0px 90px 10px 90px;
+  p {
+    margin: 5px 0px;
+  }
 `
 
 function Place() {
@@ -43,7 +46,13 @@ function Place() {
   const name = dataPlace[0].host.name.split(' ')
   const rating = dataPlace[0].rating
   const description = dataPlace[0].description
-  const equipments = dataPlace[0].equipments
+  const equipments = dataPlace[0].equipments.map((equipment) => {
+    return (
+      <div>
+        <p>{equipment}</p>
+      </div>
+    )
+  })
 
   return (
     <>
@@ -67,7 +76,7 @@ function Place() {
       </PlacePresentation>
       <Details>
         <Collapse title="Description" info={dataPlace[0].description} />
-        <Collapse title="Équipements" info={dataPlace[0].equipments} />
+        <Collapse title="Équipements" info={equipments} />
       </Details>
     </>
   )
