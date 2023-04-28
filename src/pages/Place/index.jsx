@@ -26,7 +26,7 @@ const PlacePresentation = styled.section`
 
 const Details = styled.section`
   display: flex;
-  margin: 0px 90px 10px 90px;
+  margin: 0px 70px 20px 70px;
   p {
     margin: 5px 0px;
   }

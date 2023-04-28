@@ -5,7 +5,9 @@ import styled from 'styled-components'
 
 const CollapseContainer = styled.div`
   margin: 0px 150px 50px 150px;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 function About() {

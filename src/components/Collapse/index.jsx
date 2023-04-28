@@ -7,7 +7,7 @@ const CollapseContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 10px;
+  margin: 0px 30px;
 `
 
 const CollapseBar = styled.button`
@@ -42,6 +42,7 @@ const Info = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 `
 
 function Collapse({ title, info }) {
