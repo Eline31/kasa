@@ -1,9 +1,7 @@
-import data from '../../data/data.json'
 import arrowleft from '../../assets/arrow_left.png'
 import arrowright from '../../assets/arrow_right.png'
 import styled from 'styled-components'
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
 
 const CarrouselContainer = styled.div`
   display: flex;
@@ -54,102 +52,56 @@ function BtnSlide({ direction, moveSlide }) {
   )
 }
 
-function Carrousel({ picture }) {
-  const { id } = useParams()
-  const dataPlace = data.find((place) => {
-    if (place.id === id) {
-      return { place }
-    } else {
-      return "Aucun logement correspondant à cet ID n'a été trouvé"
-    }
-  })
+function Carrousel({ pictures }) {
+  // const { id } = useParams()
+  // const dataPlace = data.find((place) => {
+  //   if (place.id === id) {
+  //     return { place }
+  //   } else {
+  //     return "Aucun logement correspondant à cet ID n'a été trouvé"
+  //   }
+  // })
 
-  const [picIndex, setPicIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const nextSlide = () => {
-    if (picIndex < dataPlace.pictures.length) {
-      setPicIndex(picIndex + 1)
-    } else if (picIndex === dataPlace.pictures.length) {
-      setPicIndex(1)
+    if (currentIndex < pictures.length - 1) {
+      setCurrentIndex(currentIndex + 1)
+    } else if (currentIndex === pictures.length - 1) {
+      setCurrentIndex(0)
     }
   }
   const prevSlide = () => {
-    if (picIndex > 1) {
-      setPicIndex(picIndex - 1)
-    } else if (picIndex === 1) {
-      setPicIndex(dataPlace.pictures.length)
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
+    } else if (currentIndex === 0) {
+      setCurrentIndex(pictures.length - 1)
     }
   }
   return (
     <CarrouselContainer>
-      <BtnSlide direction={'prev'} moveSlide={prevSlide}>
-        {/* <img src={arrowleft} alt="Flèche indiquant la gauche" /> */}
-      </BtnSlide>
-      <img src={picture} alt="Logement" />
-      <BtnSlide moveSlide={nextSlide} direction={'next'}>
-        {/* <img src={arrowright} alt="Flèche indiquant la droite" /> */}
-      </BtnSlide>
+      {pictures.length > 1 && (
+        <BtnSlide direction={'prev'} moveSlide={prevSlide}>
+          {/* <img src={arrowleft} alt="Flèche indiquant la gauche" /> */}
+        </BtnSlide>
+      )}
+      {pictures.map((picture) => (
+        <>
+          <img src={picture[currentIndex]} alt="Logement" />
+          <p>
+            {currentIndex + 1}/{pictures.length}
+          </p>
+        </>
+      ))}
+      {pictures.length > 1 && (
+        <BtnSlide moveSlide={nextSlide} direction={'next'}>
+          {/* <img src={arrowright} alt="Flèche indiquant la droite" /> */}
+        </BtnSlide>
+      )}
     </CarrouselContainer>
   )
 }
 
 export default Carrousel
 
-// function Survey() {
-//   const { theme } = useTheme()
-//   const { questionNumber } = useParams()
-//   const questionNumberInt = parseInt(questionNumber)
-//   const prevQuestionNumber = questionNumberInt === 1 ? 1 : questionNumberInt - 1
-//   const nextQuestionNumber = questionNumberInt + 1
-//   const { saveAnswers, answers } = useContext(SurveyContext)
-// const [error, setError] = useState(null)
-
-//   function saveReply(answer) {
-//     saveAnswers({ [questionNumber]: answer })
-//   }
-
-//   const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`)
-//   const { surveyData } = data
-
-//   if (error) {
-//     return <span>Il y a un problème</span>
-//   }
-
-//   return (
-//     <SurveyContainer>
-//       <QuestionTitle theme={theme}>Question {questionNumber}</QuestionTitle>
-//       {isLoading ? (
-//         <Loader />
-//       ) : (
-//         <QuestionContent theme={theme}>
-//           {surveyData && surveyData[questionNumber]}
-//         </QuestionContent>
-//       )}
-//       {answers && (
-//         <ReplyWrapper>
-//           <ReplyBox
-//             onClick={() => saveReply(true)}
-//             isSelected={answers[questionNumber] === true}
-//             theme={theme}
-//           >
-//             Oui
-//           </ReplyBox>
-//           <ReplyBox
-//             onClick={() => saveReply(false)}
-//             isSelected={answers[questionNumber] === false}
-//             theme={theme}
-//           >
-//             Non
-//           </ReplyBox>
-//         </ReplyWrapper>
-//       )}
-//       <LinkWrapper theme={theme}>
-//         <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
-//         {surveyData && surveyData[questionNumberInt + 1] ? (
-//           <Link to={`/survey/${nextQuestionNumber}`}>Suivant</Link>
-//         ) : (
-//           <Link to="/results">Résultats</Link>
-//         )}
-//       </LinkWrapper>
-//     </SurveyContainer>
-//   )
+// Le gars a mis dans place <carrousel pictures={pictures}/>

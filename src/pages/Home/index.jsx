@@ -28,7 +28,7 @@ function Home() {
       />
       <CardsContainer>
         {data.map((place, index) => (
-          <Link to={`/place/:${place.id}`}>
+          <Link to={`/place/${place.id}`}>
             <Card
               key={`${place.id}-${index}`}
               cover={place.cover}

@@ -3,7 +3,14 @@ import arrow from '../../assets/arrow.png'
 import styled from 'styled-components'
 import colors from '../../utils/style/Colors'
 
-const CollapseContainer = styled.button`
+const CollapseContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px;
+`
+
+const CollapseBar = styled.button`
   background: ${colors.primary};
   width: 100%;
   display: flex;
@@ -26,12 +33,14 @@ const CollapseContainer = styled.button`
     }`}
 `
 
-const Info = styled.p`
+const Info = styled.div`
   font-size: 18px;
   padding: 20px;
   background: ${colors.secondary};
   margin: 0px;
   border-radius: 0px 0px 5px 5px;
+  display: flex;
+  flex-direction: column;
 `
 
 function Collapse({ title, info }) {
@@ -39,18 +48,20 @@ function Collapse({ title, info }) {
   return (
     <>
       {!isOpen ? (
-        <CollapseContainer onClick={() => setIsOpen(!isOpen)}>
-          <h2>{title}</h2>
-          <img src={arrow} alt="flèche vers le bas" />
+        <CollapseContainer>
+          <CollapseBar onClick={() => setIsOpen(!isOpen)}>
+            <h2>{title}</h2>
+            <img src={arrow} alt="flèche vers le bas" />
+          </CollapseBar>
         </CollapseContainer>
       ) : (
-        <>
-          <CollapseContainer onClick={() => setIsOpen(!isOpen)} $isOpen>
+        <CollapseContainer>
+          <CollapseBar onClick={() => setIsOpen(!isOpen)} $isOpen>
             <h2>{title}</h2>
             <img src={arrow} alt="flèche vers le haut" />
-          </CollapseContainer>
+          </CollapseBar>
           {isOpen && <Info>{info}</Info>}
-        </>
+        </CollapseContainer>
       )}
     </>
   )

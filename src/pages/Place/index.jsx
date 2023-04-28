@@ -3,60 +3,73 @@ import { useParams } from 'react-router-dom'
 import Carrousel from '../../components/Carrousel'
 import styled from 'styled-components'
 import data from '../../data/data.json'
+import { useState, useEffect } from 'react'
+import Tag from '../../components/Tag'
+import Collapse from '../../components/Collapse'
 
 const ComponentContainer = styled.div``
 
+const PlacePresentation = styled.section`
+  margin: 0px 100px;
+  h1 {
+    font-size: 36px;
+    margin-bottom: 0px;
+  }
+  p {
+    font-size: 18px;
+    margin: 10px 0px;
+  }
+  div {
+    display: flex;
+  }
+`
+
+const Details = styled.section`
+  display: flex;
+  margin: 0px 90px 30px 90px;
+`
+
 function Place() {
-  const { id } = useParams()
-  console.log(id)
-  const dataPlace = data.find((place) => {
-    if (place.id === id) {
-      return { place }
-    } else {
-      return "Aucun logement correspondant à cet ID n'a été trouvé"
-    }
-  })
-  console.log(dataPlace)
+  // const [currentIndex, setCurrentIndex] = useState(0)
+  const [imageSlider, setImageSlider] = useState([])
+  const placeId = useParams('id').id
+  const dataPlace = data.filter((data) => data.id === placeId)
+
+  useEffect(() => {
+    const dataPlace = data.filter((data) => data.id === placeId)
+    setImageSlider(dataPlace[0].pictures)
+  }, [placeId])
+
+  const name = dataPlace[0].host.name.split(' ')
+  const rating = dataPlace[0].rating
+  const description = dataPlace[0].description
+  const equipments = dataPlace[0].equipments
 
   return (
-    <div>
-      {/* {data &&
-        data.map((place) => ( */}
-      <>
-        <section>
-          <ComponentContainer>
-            {dataPlace.pictures &&
-              dataPlace.pictures.map((picture, index) => (
-                <Carrousel key={`${picture}-${index}`} picture={picture} />
-              ))}
-          </ComponentContainer>
-          <h1>{dataPlace.title}</h1>
-          <p>{dataPlace.location}</p>
-          {dataPlace.tags &&
-            dataPlace.tags.map((tag, index) => (
-              <ul>
-                <li key={`${tag}-${index}`}>{tag}</li>
-              </ul>
+    <>
+      <section>
+        <ComponentContainer>
+          {/* {dataPlace.pictures &&
+            dataPlace.pictures.map((picture, index) => ( */}
+          <Carrousel pictures={imageSlider} />
+          {/* ))} */}
+        </ComponentContainer>
+      </section>
+      <PlacePresentation>
+        <h1>{dataPlace[0].title}</h1>
+        <p>{dataPlace[0].location}</p>
+        <div>
+          {dataPlace[0].tags &&
+            dataPlace[0].tags.map((tag, index) => (
+              <Tag key={`${tag}-${index}`} tag={tag} />
             ))}
-        </section>
-        <section>
-          <div>
-            <h2>Description</h2>
-            <p>{dataPlace.description}</p>
-          </div>
-          <div>
-            <h2>Equipements</h2>
-            {dataPlace.equipments &&
-              dataPlace.equipments.map((equipment, index) => (
-                <ul>
-                  <li key={`${equipment}-${index}`}>{equipment}</li>
-                </ul>
-              ))}
-          </div>
-        </section>
-      </>
-      {/* ))} */}
-    </div>
+        </div>
+      </PlacePresentation>
+      <Details>
+        <Collapse title="Description" info={dataPlace[0].description} />
+        <Collapse title="Équipements" info={dataPlace[0].equipments} />
+      </Details>
+    </>
   )
 }
 
