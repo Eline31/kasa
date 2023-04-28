@@ -6,21 +6,65 @@ import data from '../../data/data.json'
 import { useState, useEffect } from 'react'
 import Tag from '../../components/Tag'
 import Collapse from '../../components/Collapse'
+import star from '../../assets/star.png'
+import fullstar from '../../assets/star-full.png'
+import colors from '../../utils/style/Colors'
 
 const ComponentContainer = styled.div``
 
 const PlacePresentation = styled.section`
   margin: 0px 100px;
-  h1 {
-    font-size: 36px;
-    margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+  .publicInfo {
+    width: 75%;
+    h1 {
+      font-size: 36px;
+      margin-bottom: 0px;
+    }
+    p {
+      font-size: 18px;
+      margin: 0px 0px 10px 0px;
+    }
+    div {
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      p {
+        margin: 0px;
+      }
+    }
   }
-  p {
-    font-size: 18px;
-    margin: 10px 0px;
-  }
-  div {
+  .privateInfo {
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    div:first-of-type {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 15px 0px;
+      p {
+        text-align: right;
+        font-size: 18px;
+      }
+      img {
+        background: ${colors.secondary};
+        border-radius: 50%;
+        height: 64px;
+        width: 64px;
+        margin-left: 20px;
+      }
+    }
+    div:last-of-type {
+      display: flex;
+      flex-direction: row;
+      padding: 15px 0px 0px 0px;
+      img {
+        margin-left: 10px;
+      }
+    }
   }
 `
 
@@ -43,7 +87,7 @@ function Place() {
     setImageSlider(dataPlace[0].pictures)
   }, [placeId])
 
-  const name = dataPlace[0].host.name.split(' ')
+  const name = dataPlace[0].host.name
   const rating = dataPlace[0].rating
   const description = dataPlace[0].description
   const equipments = dataPlace[0].equipments.map((equipment) => {
@@ -65,13 +109,28 @@ function Place() {
         </ComponentContainer>
       </section>
       <PlacePresentation>
-        <h1>{dataPlace[0].title}</h1>
-        <p>{dataPlace[0].location}</p>
-        <div>
-          {dataPlace[0].tags &&
-            dataPlace[0].tags.map((tag, index) => (
-              <Tag key={`${tag}-${index}`} tag={tag} />
-            ))}
+        <div className="publicInfo">
+          <h1>{dataPlace[0].title}</h1>
+          <p>{dataPlace[0].location}</p>
+          <div>
+            {dataPlace[0].tags &&
+              dataPlace[0].tags.map((tag, index) => (
+                <Tag key={`${tag}-${index}`} tag={tag} />
+              ))}
+          </div>
+        </div>
+        <div className="privateInfo">
+          <div>
+            <p>{name}</p>
+            <img src="" alt="photo du/de la propriétaire" />
+          </div>
+          <div>
+            <img src={star} alt="étoile" />
+            <img src={star} alt="étoile" />
+            <img src={star} alt="étoile" />
+            <img src={star} alt="étoile" />
+            <img src={star} alt="étoile" />
+          </div>
         </div>
       </PlacePresentation>
       <Details>

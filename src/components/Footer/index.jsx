@@ -11,7 +11,6 @@ const FooterContainer = styled.div`
   justify-content: center;
   img {
     height: 40px;
-    padding: 20px;
   }
   p {
     font-weight: 500;
