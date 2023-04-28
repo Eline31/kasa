@@ -16,6 +16,7 @@ const PlacePresentation = styled.section`
   margin: 0px 100px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   .publicInfo {
     width: 75%;
     h1 {
