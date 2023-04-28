@@ -9,37 +9,33 @@ const CarrouselContainer = styled.div`
   height: 410px;
   margin: 0px 100px;
   border-radius: 25px;
-  img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 25px;
-  }
-`
-
-const BtnSlider = styled.button`
-  button:first-child {
-    position: absolute;
-    left: 20px;
+  button {
     background: none;
     border: none;
-    padding-left: 10px;
     align-self: center;
     cursor: pointer;
-  }
-  button:last-child {
     position: absolute;
-    right: 20px;
-    background: none;
-    border: none;
-    padding-right: 10px;
-    align-self: center;
-    cursor: pointer;
+    &:first-child {
+      left: 20px;
+      padding-left: 10px;
+    }
+    &:last-child {
+      right: 20px;
+      padding-right: 10px;
+    }
+  }
+  p {
+    align-self: flex-end;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    left: 50%;
   }
 `
 
 function BtnSlide({ direction, moveSlide }) {
   return (
-    <BtnSlider OnClick={moveSlide}>
+    <button OnClick={moveSlide}>
       <img
         src={direction === 'next' ? arrowright : arrowleft}
         alt={
@@ -48,7 +44,7 @@ function BtnSlide({ direction, moveSlide }) {
             : 'Flèche indiquant la gauche'
         }
       />
-    </BtnSlider>
+    </button>
   )
 }
 
@@ -79,24 +75,17 @@ function Carrousel({ pictures }) {
     }
   }
   return (
-    <CarrouselContainer>
+    <CarrouselContainer
+      style={{ backgroundImage: `url(${pictures[currentIndex]})` }}
+    >
       {pictures.length > 1 && (
-        <BtnSlide direction={'prev'} moveSlide={prevSlide}>
-          {/* <img src={arrowleft} alt="Flèche indiquant la gauche" /> */}
-        </BtnSlide>
+        <BtnSlide direction={'prev'} moveSlide={prevSlide} />
       )}
-      {pictures.map((picture) => (
-        <>
-          <img src={picture[currentIndex]} alt="Logement" />
-          <p>
-            {currentIndex + 1}/{pictures.length}
-          </p>
-        </>
-      ))}
+      <p>
+        {currentIndex + 1}/{pictures.length}
+      </p>
       {pictures.length > 1 && (
-        <BtnSlide moveSlide={nextSlide} direction={'next'}>
-          {/* <img src={arrowright} alt="Flèche indiquant la droite" /> */}
-        </BtnSlide>
+        <BtnSlide moveSlide={nextSlide} direction={'next'} />
       )}
     </CarrouselContainer>
   )
