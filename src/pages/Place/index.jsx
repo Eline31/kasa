@@ -10,10 +10,8 @@ import star from '../../assets/star.png'
 import fullstar from '../../assets/star-full.png'
 import colors from '../../utils/style/Colors'
 
-const ComponentContainer = styled.div``
-
 const PlacePresentation = styled.section`
-  margin: 0px 100px;
+  margin: 10px 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -102,12 +100,7 @@ function Place() {
   return (
     <>
       <section>
-        <ComponentContainer>
-          {/* {dataPlace.pictures &&
-            dataPlace.pictures.map((picture, index) => ( */}
-          <Carrousel pictures={imageSlider} />
-          {/* ))} */}
-        </ComponentContainer>
+        <Carrousel pictures={imageSlider} />
       </section>
       <PlacePresentation>
         <div className="publicInfo">
@@ -126,11 +119,11 @@ function Place() {
             <img src={dataPlace[0].host.picture} alt="Le ou la propriétaire" />
           </div>
           <div>
-            <img src={star} alt="étoile" />
-            <img src={star} alt="étoile" />
-            <img src={star} alt="étoile" />
-            <img src={star} alt="étoile" />
-            <img src={star} alt="étoile" />
+            <img src={rating >= 1 ? fullstar : star} alt="étoile" />
+            <img src={rating >= 2 ? fullstar : star} alt="étoile" />
+            <img src={rating >= 3 ? fullstar : star} alt="étoile" />
+            <img src={rating >= 4 ? fullstar : star} alt="étoile" />
+            <img src={rating > 4 ? fullstar : star} alt="étoile" />
           </div>
         </div>
       </PlacePresentation>
