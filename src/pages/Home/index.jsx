@@ -20,9 +20,15 @@ const CardsContainer = styled.section`
 
 const CardLink = styled(Link)`
   text-decoration: none;
+  &:hover {
+    filter: drop-shadow(2px 3px 4px grey);
+    opacity: 0.9;
+  }
 `
 
 function Home() {
+  const ids = data.map((data) => data.id)
+
   return (
     <>
       <Banner
@@ -34,7 +40,7 @@ function Home() {
         {data.map((place, index) => (
           <CardLink
             key={`${place.id}-Card`}
-            to={place.id ? `/place/${place.id}` : '/error'}
+            to={ids.includes(`${place.id}`) ? `/place/${place.id}` : '/error'}
           >
             <Card
               key={`${place.id}-${index}`}

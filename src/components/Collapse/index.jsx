@@ -24,14 +24,6 @@ const CollapseContainer = styled.div`
       font-family: 'Montserrat';
       color: white;
     }
-    ${(props) =>
-      props.$isOpen &&
-      `
-    img {
-      transition: transform 300ms ease-in-out;
-      transform: rotate(180deg);
-    }`}
-  }
 `
 
 const CollapseBar = styled.button`
@@ -45,7 +37,13 @@ const CollapseBar = styled.button`
   border-radius: 5px;
   height: 50px;
   margin: 10px 0px 0px 0px;
-  transform: rotate(0deg);
+  &:hover {
+    opacity: 0.9;
+  }
+  img {
+    transform: rotate(0deg);
+    transition: all 300ms ease-in-out;
+  }
   h2 {
     font-family: 'Montserrat';
     color: white;
@@ -69,7 +67,15 @@ const Info = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  transition: transform 300ms ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease-in-out;
+  ${(props) =>
+    props.$isOpen &&
+    `
+    opacity: 1;
+    visibility: visible;
+    `}
 `
 
 function Collapse({ title, info }) {
@@ -77,19 +83,19 @@ function Collapse({ title, info }) {
   return (
     <>
       {!isOpen ? (
-        <CollapseContainer>
+        <CollapseContainer className="isClosed">
           <CollapseBar onClick={() => setIsOpen(!isOpen)}>
             <h2>{title}</h2>
             <img src={arrow} alt="afficher le contenu" />
           </CollapseBar>
         </CollapseContainer>
       ) : (
-        <CollapseContainer>
+        <CollapseContainer className="isOpen">
           <CollapseBar onClick={() => setIsOpen(!isOpen)} $isOpen>
             <h2>{title}</h2>
             <img src={arrow} alt="cacher le contenu" />
           </CollapseBar>
-          {isOpen && <Info>{info}</Info>}
+          {isOpen && <Info $isOpen>{info}</Info>}
         </CollapseContainer>
       )}
     </>

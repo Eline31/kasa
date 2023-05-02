@@ -75,7 +75,6 @@ const Details = styled.section`
 `
 
 function Place() {
-  // const [currentIndex, setCurrentIndex] = useState(0)
   const [imageSlider, setImageSlider] = useState([])
   const placeId = useParams('id').id
   const dataPlace = data.filter((data) => data.id === placeId)
