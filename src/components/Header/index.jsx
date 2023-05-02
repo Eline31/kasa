@@ -21,22 +21,38 @@ const NavContainer = styled.nav`
     width: 100%;
     text-align: end;
   }
+  .active {
+    text-decoration: underline;
+  }
 `
 
 function Header() {
   const [select, setSelect] = useState(false)
+  const currentRoute = window.location.pathname
 
   return (
     <>
       <NavContainer className="Home-header">
         <Link to="/">
-          <img src={logo} className="Home-logo" alt="logo" />
+          <img
+            src={logo}
+            alt="logo"
+            className={currentRoute === '/' ? 'active' : ''}
+          />
         </Link>
         <div>
-          <StyledLink to="/" onClick={() => setSelect(!select)}>
+          <StyledLink
+            to="/"
+            onClick={() => setSelect(!select)}
+            className={currentRoute === '/' ? 'active' : ''}
+          >
             Accueil
           </StyledLink>
-          <StyledLink to="/About" onClick={() => setSelect(!select)}>
+          <StyledLink
+            to="/About"
+            onClick={() => setSelect(!select)}
+            className={currentRoute === '/About' ? 'active' : ''}
+          >
             À propos
           </StyledLink>
         </div>

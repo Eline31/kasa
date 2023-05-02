@@ -32,7 +32,10 @@ function Home() {
       />
       <CardsContainer>
         {data.map((place, index) => (
-          <CardLink to={`/place/${place.id}`}>
+          <CardLink
+            key={`${place.id}-Card`}
+            to={place.id ? `/place/${place.id}` : '/error'}
+          >
             <Card
               key={`${place.id}-${index}`}
               cover={place.cover}

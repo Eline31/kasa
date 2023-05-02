@@ -8,6 +8,30 @@ const CollapseContainer = styled.div`
   flex-direction: column;
   width: 100%;
   margin: 0px 30px;
+  button {
+    background: ${colors.primary};
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    border: none;
+    border-radius: 5px;
+    height: 50px;
+    margin: 10px 0px 0px 0px;
+    transform: rotate(0deg);
+    h2 {
+      font-family: 'Montserrat';
+      color: white;
+    }
+    ${(props) =>
+      props.$isOpen &&
+      `
+    img {
+      transition: transform 300ms ease-in-out;
+      transform: rotate(180deg);
+    }`}
+  }
 `
 
 const CollapseBar = styled.button`
@@ -21,6 +45,7 @@ const CollapseBar = styled.button`
   border-radius: 5px;
   height: 50px;
   margin: 10px 0px 0px 0px;
+  transform: rotate(0deg);
   h2 {
     font-family: 'Montserrat';
     color: white;
@@ -29,7 +54,8 @@ const CollapseBar = styled.button`
     props.$isOpen &&
     `
     img {
-        transform: rotate(180deg);
+      transition: all 300ms ease-in-out;
+      transform: rotate(180deg);
     }`}
 `
 
@@ -43,6 +69,7 @@ const Info = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
+  transition: transform 300ms ease-in-out;
 `
 
 function Collapse({ title, info }) {
@@ -53,14 +80,14 @@ function Collapse({ title, info }) {
         <CollapseContainer>
           <CollapseBar onClick={() => setIsOpen(!isOpen)}>
             <h2>{title}</h2>
-            <img src={arrow} alt="flèche vers le bas" />
+            <img src={arrow} alt="afficher le contenu" />
           </CollapseBar>
         </CollapseContainer>
       ) : (
         <CollapseContainer>
           <CollapseBar onClick={() => setIsOpen(!isOpen)} $isOpen>
             <h2>{title}</h2>
-            <img src={arrow} alt="flèche vers le haut" />
+            <img src={arrow} alt="cacher le contenu" />
           </CollapseBar>
           {isOpen && <Info>{info}</Info>}
         </CollapseContainer>
