@@ -94,7 +94,7 @@ function Place() {
   const equipments = dataPlace[0].equipments.map((equipment) => {
     return (
       <div>
-        <p>{equipment}</p>
+        <p key={`${placeId}-${equipment}`}>{equipment}</p>
       </div>
     )
   })
@@ -123,7 +123,7 @@ function Place() {
         <div className="privateInfo">
           <div>
             <p>{name}</p>
-            <img src="" alt="photo du/de la propriétaire" />
+            <img src={dataPlace[0].host.picture} alt="Le ou la propriétaire" />
           </div>
           <div>
             <img src={star} alt="étoile" />

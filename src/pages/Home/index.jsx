@@ -18,6 +18,10 @@ const CardsContainer = styled.section`
   margin: 0px 100px 100px 100px;
 `
 
+const CardLink = styled(Link)`
+  text-decoration: none;
+`
+
 function Home() {
   return (
     <>
@@ -28,14 +32,14 @@ function Home() {
       />
       <CardsContainer>
         {data.map((place, index) => (
-          <Link to={`/place/${place.id}`}>
+          <CardLink to={`/place/${place.id}`}>
             <Card
               key={`${place.id}-${index}`}
               cover={place.cover}
               title={place.title}
               location={place.location}
             />
-          </Link>
+          </CardLink>
         ))}
       </CardsContainer>
     </>
