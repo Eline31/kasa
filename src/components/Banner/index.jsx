@@ -29,6 +29,14 @@ const BannerContainer = styled.section`
     object-fit: cover;
     border-radius: 25px;
   }
+  @media only screen and (max-width: 1023px) {
+    margin: 0px 20px 10px 20px;
+    height: 110px;
+    h1 {
+      font-size: 1.5em;
+      justify-content: flex-start;
+    }
+  }
 `
 
 function Banner({ picture, alt, title }) {

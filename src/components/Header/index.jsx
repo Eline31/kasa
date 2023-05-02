@@ -12,8 +12,8 @@ const NavContainer = styled.nav`
   flex-direction: row;
   flex-wrap: no-wrap;
   align-items: center;
-  margin: 0px 100px;
-  img {
+  margin: 20px 100px;
+  a {
     max-height: 70px;
     max-width: 150px;
   }
@@ -26,7 +26,22 @@ const NavContainer = styled.nav`
   }
   @media only screen and (max-width: 1023px) {
     text-transform: uppercase;
-    margin: 30px 20px;
+    margin: 20px 20px 10px 20px;
+    padding: 20px 0px;
+    width: none;
+    a {
+      width: 50%;
+      padding-left: 10px;
+      img {
+        width: 80%;
+      }
+    }
+    div {
+      width: 50%;
+      a {
+        font-size: 0.9em;
+      }
+    }
   }
 `
 
