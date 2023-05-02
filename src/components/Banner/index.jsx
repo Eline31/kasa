@@ -32,9 +32,15 @@ const BannerContainer = styled.section`
   @media only screen and (max-width: 1023px) {
     margin: 0px 20px 10px 20px;
     height: 110px;
+    border-radius: 10px;
     h1 {
-      font-size: 1.5em;
+      font-size: 1.7em;
       justify-content: flex-start;
+      line-height: 1;
+      padding-right: 70px;
+    }
+    img {
+      border-radius: 10px;
     }
   }
 `
