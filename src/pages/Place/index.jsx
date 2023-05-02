@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom'
-// import PlaceImg from '../../assets/Background_component.png'
 import Carrousel from '../../components/Carrousel'
 import styled from 'styled-components'
 import data from '../../data/data.json'
@@ -128,7 +127,7 @@ function Place() {
         </div>
       </PlacePresentation>
       <Details>
-        <Collapse title="Description" info={dataPlace[0].description} />
+        <Collapse title="Description" info={description} />
         <Collapse title="Équipements" info={equipments} />
       </Details>
     </>
