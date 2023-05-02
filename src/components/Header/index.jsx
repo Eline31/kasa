@@ -1,8 +1,8 @@
 import logo from '../../assets/LOGO-1.svg'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { StyledLink } from '../../utils/style/Atoms'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const NavContainer = styled.nav`
   padding: 40px 0px;
@@ -16,10 +16,14 @@ const NavContainer = styled.nav`
   a {
     max-height: 70px;
     max-width: 150px;
+    padding: 0px !important;
   }
   div {
     width: 100%;
     text-align: end;
+    a {
+      padding-left: 40px !important;
+    }
   }
   .active {
     text-decoration: underline;
@@ -29,6 +33,7 @@ const NavContainer = styled.nav`
     margin: 20px 20px 10px 20px;
     padding: 20px 0px;
     width: none;
+    justify-content: space-between;
     a {
       width: 50%;
       padding-left: 10px;
@@ -40,14 +45,15 @@ const NavContainer = styled.nav`
       width: 50%;
       a {
         font-size: 0.9em;
+        text-align: flex-end;
+        padding-left: 10px !important;
       }
     }
   }
 `
 
 function Header() {
-  const [select, setSelect] = useState(false)
-  const currentRoute = window.location.pathname
+  const location = useLocation()
 
   return (
     <>
@@ -56,21 +62,19 @@ function Header() {
           <img
             src={logo}
             alt="logo"
-            className={currentRoute === '/' ? 'active' : ''}
+            className={location.pathname === '/' ? 'active' : ''}
           />
         </Link>
         <div>
           <StyledLink
             to="/"
-            onClick={() => setSelect(!select)}
-            className={currentRoute === '/' ? 'active' : ''}
+            className={location.pathname === '/' ? 'active' : ''}
           >
             Accueil
           </StyledLink>
           <StyledLink
             to="/About"
-            onClick={() => setSelect(!select)}
-            className={currentRoute === '/About' ? 'active' : ''}
+            className={location.pathname === '/About' ? 'active' : ''}
           >
             À propos
           </StyledLink>

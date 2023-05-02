@@ -16,6 +16,12 @@ const CardsContainer = styled.section`
   grid-gap: 2rem;
   justify-items: center;
   margin: 0px 100px 100px 100px;
+  @media only screen and (max-width: 1023px) {
+    margin: 0px 20px;
+    justify-content: center;
+    padding: 10px 0px;
+    background: none;
+  }
 `
 
 const CardLink = styled(Link)`
