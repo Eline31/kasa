@@ -24,6 +24,10 @@ const NavContainer = styled.nav`
   .active {
     text-decoration: underline;
   }
+  @media only screen and (max-width: 1023px) {
+    text-transform: uppercase;
+    margin: 30px 20px;
+  }
 `
 
 function Header() {
