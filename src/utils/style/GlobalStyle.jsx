@@ -10,9 +10,6 @@ const GlobalStyle = createGlobalStyle`
 body {
     margin: 0px;  
 }
-footer {
-  margin: 0px;
-}
 `
 
 export default GlobalStyle

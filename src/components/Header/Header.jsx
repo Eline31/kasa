@@ -2,7 +2,6 @@ import logo from '../../assets/LOGO-1.svg'
 import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { StyledLink } from '../../utils/style/Atoms'
-import { useState, useEffect } from 'react'
 
 const NavContainer = styled.nav`
   padding: 40px 0px;

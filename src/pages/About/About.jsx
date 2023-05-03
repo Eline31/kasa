@@ -1,6 +1,6 @@
 import ImgAbout from '../../assets/About.png'
-import Banner from '../../components/Banner'
-import Collapse from '../../components/Collapse'
+import Banner from '../../components/Banner/Banner'
+import Collapse from '../../components/Collapse/Collapse'
 import styled from 'styled-components'
 
 const CollapseContainer = styled.div`

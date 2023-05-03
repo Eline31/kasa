@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom'
-import Carrousel from '../../components/Carrousel'
+import Carrousel from '../../components/Carrousel/Carrousel'
 import styled from 'styled-components'
 import data from '../../data/data.json'
 import { useState, useEffect } from 'react'
 import Tag from '../../components/Tag'
-import Collapse from '../../components/Collapse'
+import Collapse from '../../components/Collapse/Collapse'
 import star from '../../assets/star.png'
 import fullstar from '../../assets/star-full.png'
 import colors from '../../utils/style/Colors'
@@ -89,9 +89,9 @@ function Place() {
   const description = dataPlace[0].description
   const equipments = dataPlace[0].equipments.map((equipment) => {
     return (
-      <div>
+      <span>
         <p key={`${placeId}-${equipment}`}>{equipment}</p>
-      </div>
+      </span>
     )
   })
 

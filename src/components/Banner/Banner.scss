@@ -1,7 +1,4 @@
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-
-const BannerContainer = styled.section`
+section {
   display: flex;
   position: relative;
   margin: 0px 100px 30px 100px;
@@ -43,21 +40,4 @@ const BannerContainer = styled.section`
       border-radius: 10px;
     }
   }
-`
-
-function Banner({ picture, alt, title }) {
-  return (
-    <BannerContainer>
-      <h1>{title}</h1>
-      <img src={picture} alt={alt} />
-    </BannerContainer>
-  )
 }
-
-Banner.protoType = {
-  title: PropTypes.string,
-  picture: PropTypes.string,
-  alt: PropTypes.string,
-}
-
-export default Banner

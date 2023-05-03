@@ -73,5 +73,3 @@ function Carrousel({ pictures }) {
 }
 
 export default Carrousel
-
-// Le gars a mis dans place <carrousel pictures={pictures}/>
