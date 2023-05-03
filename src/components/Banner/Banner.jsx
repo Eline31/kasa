@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import './Banner.scss'
+// import './Banner.scss'
 
 const BannerContainer = styled.section`
   display: flex;

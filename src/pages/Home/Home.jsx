@@ -1,9 +1,9 @@
-import Card from '../../components/Card/Card'
+import Card from '../../components/Card/Card.jsx'
 import data from '../../data/data.json'
 import BgHome from '../../assets/Home.png'
 import styled from 'styled-components'
 import colors from '../../utils/style/Colors'
-import Banner from '../../components/Banner/Banner'
+import Banner from '../../components/Banner/Banner.jsx'
 import { Link } from 'react-router-dom'
 
 /**Section de contenus avec cartes logement */
