@@ -1,38 +1,7 @@
 import arrowleft from '../../assets/arrow_left.png'
 import arrowright from '../../assets/arrow_right.png'
-import styled from 'styled-components'
 import { useState } from 'react'
-
-const CarrouselContainer = styled.div`
-  display: flex;
-  position: relative;
-  height: 410px;
-  margin: 0px 100px;
-  border-radius: 25px;
-  padding: 10px;
-  background-position: center;
-  background-size: cover;
-  button {
-    background: none;
-    border: none;
-    align-self: center;
-    cursor: pointer;
-    position: absolute;
-    &:first-child {
-      left: 20px;
-    }
-    &:last-child {
-      right: 20px;
-    }
-  }
-  p {
-    align-self: flex-end;
-    color: white;
-    font-size: 24px;
-    position: absolute;
-    left: 50%;
-  }
-`
+import './Carrousel.scss'
 
 function Carrousel({ pictures }) {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -52,7 +21,8 @@ function Carrousel({ pictures }) {
     }
   }
   return (
-    <CarrouselContainer
+    <div
+      className="CarrouselContainer"
       style={{ backgroundImage: `url(${pictures[currentIndex]})` }}
     >
       {pictures.length > 1 && (
@@ -68,7 +38,7 @@ function Carrousel({ pictures }) {
           </button>
         </>
       )}
-    </CarrouselContainer>
+    </div>
   )
 }
 

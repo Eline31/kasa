@@ -8,7 +8,8 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 body {
-    margin: 0px;  
+    margin: auto; 
+    max-width: 1440px; 
 }
 `
 
