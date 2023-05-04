@@ -1,0 +1,26 @@
+.FooterContainer {
+  max-height: 200px;
+  background: black;
+  color: white;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  img {
+    height: 40px;
+  }
+  p {
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    margin: 24px 0px 0px 0px;
+  }
+  @media only screen and (max-width: 1023px) {
+    justify-content: center;
+    p {
+      font-size: 12px;
+    }
+  }
+}

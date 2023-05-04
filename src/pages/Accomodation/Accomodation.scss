@@ -1,0 +1,131 @@
+@import '../../utils//style/GlobalStyle.scss';
+
+.AccomodationPresentation {
+  margin: 10px 100px 20px 100px;
+  display: flex;
+  max-height: 140px;
+  .AccomodationContent {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h1 {
+      font-size: 2.3em;
+      margin: 10px 0px 0px 0px;
+      line-height: 142.6%;
+    }
+    p {
+      font-size: 18px;
+      margin: 5px 0px;
+    }
+    div {
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      p {
+        margin: 10px 15px 0px 0px;
+      }
+    }
+  }
+  .HostContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    div:first-of-type {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 15px 0px;
+      justify-content: flex-end;
+      div {
+        display: flex;
+        flex-direction: column;
+        p {
+          align-self: flex-end;
+          font-size: 18px;
+          margin: 0px;
+        }
+      }
+      img {
+        background: $secondary-color;
+        border-radius: 50%;
+        height: 64px;
+        width: 64px;
+        margin-left: 20px;
+      }
+    }
+    div:last-of-type {
+      display: flex;
+      flex-direction: row;
+      img {
+        margin: 0px 0px 0px 10px;
+      }
+    }
+  }
+  @media only screen and (max-width: 1023px) {
+    margin: 10px 20px;
+    flex-direction: column;
+    max-height: none;
+    .AccomodationContent {
+      width: 100%;
+      h1 {
+        font-size: 1.3em;
+        margin: 0px;
+        font-weight: 500;
+      }
+      p {
+        font-size: 1em;
+      }
+      div {
+        p {
+          margin: 0px 10px 5px 0px;
+        }
+      }
+    }
+    .HostContent {
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-between;
+      height: 50px;
+      div:first-of-type {
+        // justify-items: flex-end;
+        padding: 0px;
+        div {
+          p {
+            font-size: 12px;
+          }
+        }
+        img {
+          width: 32px;
+          height: 32px;
+          margin-left: 10px;
+        }
+      }
+      div:last-of-type {
+        width: 30%;
+        img {
+          margin: 0px 7px 0px 0px;
+          height: 13px;
+          width: 13px;
+        }
+      }
+    }
+  }
+}
+
+.Details {
+  display: flex;
+  margin: 0px 70px 20px 70px;
+  p {
+    margin: 5px 0px;
+  }
+  @media only screen and (max-width: 1023px) {
+    margin: 0px 20px 20px 20px;
+    flex-direction: column;
+    p {
+      margin: 0px;
+    }
+  }
+}

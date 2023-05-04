@@ -43,16 +43,20 @@ function Home() {
         title="Chez vous, partout et ailleurs"
       />
       <CardsContainer>
-        {data.map((place, index) => (
+        {data.map((accomodation, index) => (
           <CardLink
-            key={`${place.id}-Card`}
-            to={ids.includes(`${place.id}`) ? `/place/${place.id}` : '/error'}
+            key={`${accomodation.id}-Card`}
+            to={
+              ids.includes(`${accomodation.id}`)
+                ? `/accomodation/${accomodation.id}`
+                : '/error'
+            }
           >
             <Card
-              key={`${place.id}-${index}`}
-              cover={place.cover}
-              title={place.title}
-              location={place.location}
+              key={`${accomodation.id}-${index}`}
+              cover={accomodation.cover}
+              title={accomodation.title}
+              location={accomodation.location}
             />
           </CardLink>
         ))}

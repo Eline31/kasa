@@ -3,10 +3,10 @@ import './Banner.scss'
 
 function Banner({ picture, alt, title }) {
   return (
-    <secion className="BannerContainer">
+    <section className="BannerContainer">
       <h1>{title}</h1>
       <img src={picture} alt={alt} />
-    </secion>
+    </section>
   )
 }
 

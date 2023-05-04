@@ -1,2 +1,13 @@
 $primary-color: #ff6060;
 $secondary-color: #f6f6f6;
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  color: $primary-color;
+  box-sizing: border-box;
+  line-height: 142.6%;
+}
+body {
+  margin: auto;
+  max-width: 1440px;
+}
