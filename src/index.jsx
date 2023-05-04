@@ -7,13 +7,11 @@ import Accomodation from './pages/Accomodation/Accomodation.jsx'
 import Error from './pages/Error/Error.jsx'
 import Header from './components/Header/Header.jsx'
 import Footer from './components/Footer/Footer.jsx'
-import GlobalStyle from './utils/style/GlobalStyle'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Router>
-      <GlobalStyle />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

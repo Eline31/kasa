@@ -1,0 +1,27 @@
+/**Section de contenus avec cartes logement */
+@import '../../utils/style/GlobalStyle.scss';
+
+.CardsContainer {
+  background: $secondary-color;
+  border-radius: 25px;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(340px, 30%), 1fr));
+  grid-gap: 2rem;
+  justify-items: center;
+  margin: 0px 100px 100px 100px;
+  @media only screen and (max-width: 1023px) {
+    margin: 0px 20px;
+    justify-content: center;
+    padding: 10px 0px;
+    background: none;
+  }
+}
+
+.CardLink {
+  text-decoration: none;
+  &:hover {
+    filter: drop-shadow(2px 3px 4px grey);
+    opacity: 0.9;
+  }
+}

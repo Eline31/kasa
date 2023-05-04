@@ -118,6 +118,9 @@
 .Details {
   display: flex;
   margin: 0px 70px 20px 70px;
+  div {
+    width: 100%;
+  }
   p {
     margin: 5px 0px;
   }
