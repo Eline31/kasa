@@ -3,12 +3,9 @@ import data from '../../data/data.json'
 import BgHome from '../../assets/Home.png'
 import Banner from '../../components/Banner/Banner.jsx'
 import { Link } from 'react-router-dom'
-import ErrorAccomodation from '../../components/ErrorAccomodation/ErrorAccomodation.jsx'
 import './Home.scss'
 
 function Home() {
-  const ids = data.map((data) => data.id)
-
   return (
     <>
       <Banner

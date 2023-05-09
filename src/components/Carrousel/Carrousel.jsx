@@ -22,7 +22,12 @@ function Carrousel({ pictures }) {
   }
   return (
     <div
-      className="CarrouselContainer"
+      className={
+        'CarrouselContainer'
+        // currentIndex === index
+        //   ? 'CarrouselContainer animation'
+        //   : 'CarrouselContainer'
+      }
       style={{ backgroundImage: `url(${pictures[currentIndex]})` }}
     >
       {pictures.length > 1 && (
