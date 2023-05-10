@@ -12,18 +12,30 @@ const App = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Layout><Home /></Layout>,
+      element: (
+        <Layout>
+          <Home />
+        </Layout>
+      ),
     },
     {
       path: '/',
       children: [
         {
           path: 'about',
-          element: <Layout><About /></Layout>,
+          element: (
+            <Layout>
+              <About />
+            </Layout>
+          ),
         },
         {
           path: 'accomodation/:id',
-          element: <Layout><Accomodation /></Layout>,
+          element: (
+            <Layout>
+              <Accomodation />
+            </Layout>
+          ),
           errorElement: <ErrorAccomodation />,
         },
       ],
@@ -34,7 +46,7 @@ const App = () => {
     },
   ])
 
-  return (<RouterProvider router={router} />)
+  return <RouterProvider router={router} />
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
