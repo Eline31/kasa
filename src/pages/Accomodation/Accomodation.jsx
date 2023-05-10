@@ -28,6 +28,7 @@ function Accomodation() {
       </span>
     )
   })
+  
 
   return (
     <>
