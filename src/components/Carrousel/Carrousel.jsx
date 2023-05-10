@@ -20,6 +20,11 @@ function Carrousel({ pictures }) {
       setCurrentIndex(pictures.length - 1)
     }
   }
+
+  //useEffect sur currentIndex ou useRef
+
+  //Appeler les images ici
+
   return (
     <div
       className={
@@ -29,6 +34,7 @@ function Carrousel({ pictures }) {
         //   : 'CarrouselContainer'
       }
       style={{ backgroundImage: `url(${pictures[currentIndex]})` }}
+      //Appeler le tableau en entier d'images - j'affiche currentIndex.
     >
       {pictures.length > 1 && (
         <>
