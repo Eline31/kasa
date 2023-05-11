@@ -1,0 +1,1 @@
+import Accomodation from './Accomodation'
