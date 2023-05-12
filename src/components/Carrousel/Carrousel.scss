@@ -3,31 +3,45 @@
 .CarrouselContainer {
   display: flex;
   position: relative;
-  height: 410px;
+  height: 415px;
   margin: 0px 100px;
   border-radius: 25px;
-  padding: 10px;
-  background-position: center;
-  background-size: cover;
-  //   transform: translateX(0);
   transition: all 500ms ease-in-out;
-  button {
-    background: none;
-    border: none;
-    align-self: center;
-    cursor: pointer;
+  .imgContainer {
+    border-radius: 25px;
+    width: 100%;
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-radius: 25px;
+    }
+  }
+  .Arrows {
+    display: flex;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    transform: translateX(0) scale(1);
-    transition: all 500ms ease-in-out;
-    &:first-child {
-      left: 20px;
-    }
-    &:last-child {
-      right: 20px;
-    }
-    &:active {
-      transform: translateX(1) scale(1.2);
-      //   transform: scale(1.2);
+    justify-content: space-between;
+    padding: 10px;
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      transform: translateX(0) scale(1);
+      transition: all 500ms ease-in-out;
+      .arrowLeft {
+        // position: relative;
+        // left: 10px;
+      }
+      .arrowRight {
+        // position: relative;
+        // right: 20px;
+      }
+      &:active {
+        transform: translateX(1) scale(1.2);
+        //   transform: scale(1.2);
+      }
     }
   }
   p {
@@ -35,6 +49,9 @@
     color: white;
     font-size: 24px;
     margin: 20px auto;
+    position: absolute;
+    width: 100%;
+    text-align: center;
   }
   &:active {
     transform: translateX(1);

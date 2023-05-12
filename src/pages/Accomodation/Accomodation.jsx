@@ -9,14 +9,14 @@ import fullstar from '../../assets/star-full.png'
 import './Accomodation.scss'
 
 function Accomodation() {
-  const [imageSlider, setImageSlider] = useState([])
+  // const [imageSlider, setImageSlider] = useState([])
   const accomodationId = useParams('id').id
   const dataAccomodation = data.filter((data) => data.id === accomodationId)
 
-  useEffect(() => {
-    const dataAccomodation = data.filter((data) => data.id === accomodationId)
-    setImageSlider(dataAccomodation[0].pictures)
-  }, [accomodationId])
+  // useEffect(() => {
+  //   const dataAccomodation = data.filter((data) => data.id === accomodationId)
+  //   setImageSlider(dataAccomodation[0].pictures)
+  // }, [accomodationId])
 
   const name = dataAccomodation[0].host.name.split(' ')
   const rating = dataAccomodation[0].rating
@@ -32,7 +32,10 @@ function Accomodation() {
   return (
     <>
       <section>
-        <Carrousel pictures={imageSlider} />
+        <Carrousel
+          pictures={dataAccomodation[0].pictures}
+          // picture={dataAccomodation[0].pictures}
+        />
       </section>
       <section className="AccomodationPresentation">
         <div className="AccomodationContent">

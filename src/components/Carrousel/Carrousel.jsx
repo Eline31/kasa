@@ -1,10 +1,11 @@
 import arrowleft from '../../assets/arrow_left.png'
 import arrowright from '../../assets/arrow_right.png'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Carrousel.scss'
 
 function Carrousel({ pictures }) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [imageSlider, setImageSlider] = useState([])
 
   const nextSlide = () => {
     if (currentIndex < pictures.length - 1) {
@@ -21,35 +22,55 @@ function Carrousel({ pictures }) {
     }
   }
 
+  useEffect(() => {
+    setImageSlider(pictures)
+  }, [])
+
+  // console.log(imageSlider)
   //useEffect sur currentIndex ou useRef
 
   //Appeler les images ici
 
   return (
-    <div
-      className={
-        'CarrouselContainer'
-        // currentIndex === index
-        //   ? 'CarrouselContainer animation'
-        //   : 'CarrouselContainer'
-      }
-      style={{ backgroundImage: `url(${pictures[currentIndex]})` }}
-      //Appeler le tableau en entier d'images - j'affiche currentIndex.
-    >
-      {pictures.length > 1 && (
-        <>
-          <button alt="Image précédente" onClick={prevSlide}>
-            <img src={arrowleft} alt="Flèche indiquant la gauche" />
-          </button>
-          <p>
-            {currentIndex + 1}/{pictures.length}
-          </p>
-          <button alt="Image suivante" onClick={nextSlide}>
-            <img src={arrowright} alt="Flèche indiquant la droite" />
-          </button>
-        </>
-      )}
-    </div>
+    <>
+      <div
+        className={
+          'CarrouselContainer'
+          // currentIndex === index
+          //   ? 'CarrouselContainer animation'
+          //   : 'CarrouselContainer'
+        }
+        // style={{ backgroundImage: `url(${pictures})` }}
+        //Appeler le tableau en entier d'images - j'affiche currentIndex.
+      >
+        <div className="imgContainer">
+          <img src={imageSlider[currentIndex]} alt="Carrousel d'images" />
+        </div>
+        {pictures.length > 1 && (
+          <>
+            <div className="Arrows">
+              <button alt="Image précédente" onClick={prevSlide}>
+                <img
+                  src={arrowleft}
+                  className="arrowLeft"
+                  alt="Flèche indiquant la gauche"
+                />
+              </button>
+              <button alt="Image suivante" onClick={nextSlide}>
+                <img
+                  src={arrowright}
+                  className="arrowRight"
+                  alt="Flèche indiquant la droite"
+                />
+              </button>
+            </div>
+            <p>
+              {currentIndex + 1} / {pictures.length}
+            </p>
+          </>
+        )}
+      </div>
+    </>
   )
 }
 
