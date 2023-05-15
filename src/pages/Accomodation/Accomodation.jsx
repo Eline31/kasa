@@ -7,12 +7,19 @@ import Collapse from '../../components/Collapse/Collapse'
 import star from '../../assets/star.png'
 import fullstar from '../../assets/star-full.png'
 import './Accomodation.scss'
+// import ErrorAccomodation from '../../components/ErrorAccomodation.jsx'
 
 function Accomodation() {
   // const [imageSlider, setImageSlider] = useState([])
   const accomodationId = useParams('id').id
   const dataAccomodation = data.filter((data) => data.id === accomodationId)
+  const ids = data.map((data) => data.id)
 
+  if (ids.includes(accomodationId)) {
+    console.log('Le logement existe')
+  } else {
+    throw Error("Le logement recherché n'existe pas.")
+  }
   // useEffect(() => {
   //   const dataAccomodation = data.filter((data) => data.id === accomodationId)
   //   setImageSlider(dataAccomodation[0].pictures)
