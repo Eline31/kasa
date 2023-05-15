@@ -7,18 +7,23 @@
 
 section {
   margin: 0px 100px;
+
   .CarrouselContainer {
     display: flex;
     position: relative;
     height: 415px;
     border-radius: 25px;
+    overflow: hidden;
     .imgContainer {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      position: absolute;
       border-radius: 25px;
       display: flex;
       flex-direction: row;
       overflow: hidden;
       width: 100%;
-      transition: transform 500ms ease-in-out;
       img {
         object-fit: cover;
         height: 100%;
@@ -27,15 +32,13 @@ section {
         max-width: 1240px;
         border-radius: 25px;
       }
-      &.imageOffDisplay {
-        display: none;
+      &.slide-prev {
+        transition: transform 500ms ease-in-out;
         transform: translateX(100%);
-        transition: transform 500ms ease-in-out;
       }
-      &.imageOnDisplay {
-        width: 100%;
-        transform: translateX(0%);
+      &.slide-next {
         transition: transform 500ms ease-in-out;
+        transform: translateX(-100%);
       }
     }
     .Arrows {
