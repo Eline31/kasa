@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import Carrousel from '../../components/Carrousel/Carrousel'
 import data from '../../data/data.json'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import Tag from '../../components/Tag/Tag.jsx'
 import Collapse from '../../components/Collapse/Collapse'
 import star from '../../assets/star.png'

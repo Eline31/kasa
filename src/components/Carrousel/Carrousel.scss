@@ -1,109 +1,95 @@
 @import '../../utils/style/GlobalStyle.scss';
 
-.CarrouselContainer {
+.LoaderWrapper {
   display: flex;
-  position: relative;
-  height: 415px;
+  justify-content: center;
+}
+
+section {
   margin: 0px 100px;
-  border-radius: 25px;
-  transition: all 500ms ease-in-out;
-  .imgContainer {
-    border-radius: 25px;
-    width: 100%;
-    img {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-      border-radius: 25px;
-    }
-  }
-  .Arrows {
+  .CarrouselContainer {
     display: flex;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    justify-content: space-between;
-    padding: 10px;
-    button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      transform: translateX(0) scale(1);
+    position: relative;
+    height: 415px;
+    border-radius: 25px;
+    .imgContainer {
+      border-radius: 25px;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+      width: 100%;
       transition: all 500ms ease-in-out;
-      .arrowLeft {
-        // position: relative;
-        // left: 10px;
+      img {
+        object-fit: cover;
+        height: 100%;
+        max-height: 415px;
+        width: 100%;
+        max-width: 1240px;
+        border-radius: 25px;
       }
-      .arrowRight {
-        // position: relative;
-        // right: 20px;
+      &.imageOnDisplay {
+        width: 100%;
+        transform: translateX(0%);
+        transition: all 500ms ease-in-out;
+      }
+      &.imageOffDisplay {
+        display: none;
       }
       &:active {
-        transform: translateX(1) scale(1.2);
-        //   transform: scale(1.2);
+        &.imageOnDisplay {
+          transform: translateX(-100%);
+        }
       }
     }
-  }
-  p {
-    align-self: flex-end;
-    color: white;
-    font-size: 24px;
-    margin: 20px auto;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-  }
-  &:active {
-    transform: translateX(1);
-  }
-  @media only screen and (max-width: 1023px) {
-    margin: 0px 20px;
-    height: 250px;
-    padding: 0px;
-    border-radius: 10px;
-    button {
-      img {
-        width: 15px;
-      }
-      &:first-child {
-        left: 5px;
-      }
-      &:last-child {
-        right: 5px;
+    .Arrows {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      justify-content: space-between;
+      padding: 10px;
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: all 300ms ease-in-out;
+        .arrowLeft,
+        .arrowRight {
+          transform: scale(1);
+        }
+        &:active {
+          transform: scale(2);
+        }
       }
     }
     p {
-      display: none;
+      align-self: flex-end;
+      color: white;
+      font-size: 24px;
+      margin: 20px auto;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+    @media only screen and (max-width: 1023px) {
+      margin: 0px 20px;
+      height: 250px;
+      padding: 0px;
+      border-radius: 10px;
+      button {
+        img {
+          width: 15px;
+        }
+        // &:first-child {
+        //   left: 5px;
+        // }
+        // &:last-child {
+        //   right: 5px;
+        // }
+      }
+      p {
+        display: none;
+      }
     }
   }
 }
-
-// @keyframes slidy {
-//   0% {
-//     transform: translateX(0%);
-//   }
-//   20% {
-//     transform: translateX(0%);
-//   }
-//   25% {
-//     transform: translateX(-20%);
-//   }
-//   45% {
-//     transform: translateX(-30%);
-//   }
-//   50% {
-//     transform: translateX(-40%);
-//   }
-//   70% {
-//     transform: translateX(-50%);
-//   }
-//   75% {
-//     transform: translateX(-60%);
-//   }
-//   95% {
-//     transform: translateX(-75%);
-//   }
-//   100% {
-//     transform: translateX(-100%);
-//   }
-// }
