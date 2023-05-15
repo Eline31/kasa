@@ -7,13 +7,14 @@ import { Loader } from '../../utils/style/Atoms.jsx'
 function Carrousel({ pictures }) {
   const [current, setCurrent] = useState(0)
   const [imageSlider, setImageSlider] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   // useEffect(() => {
   //   pictures ? setImageSlider(pictures) : setIsLoading(true)
   //   console.log(imageSlider)
   // }, [])
   useEffect(() => {
-    setImageSlider(pictures)
+    pictures ? setImageSlider(pictures) : setIsLoading(true)
   }, [])
 
   const nextSlide = () => {
@@ -45,49 +46,56 @@ function Carrousel({ pictures }) {
   //Appeler les images ici
 
   return (
-    <>
-      <div className="CarrouselContainer">
-        {imageSlider &&
-          imageSlider.map((image, index) => (
-            <div
-              key={index}
-              className={
-                index === current
-                  ? 'imgContainer imageOnDisplay'
-                  : 'imgContainer imageOffDisplay'
-              }
-            >
-              {index === current && (
-                <img src={image} alt="Carrousel d'images" />
-              )}
-            </div>
-          ))}
-        {imageSlider.length > 1 && (
+    <div className="CarrouselContainer">
+      <>
+        {isLoading ? (
+          <div className="LoaderWrapper">
+            <Loader />
+          </div>
+        ) : (
           <>
-            <div className="Arrows">
-              <button alt="Image précédente" onClick={prevSlide}>
-                <img
-                  src={arrowleft}
-                  className="arrowLeft"
-                  alt="Flèche indiquant la gauche"
-                />
-              </button>
-              <button alt="Image suivante" onClick={nextSlide}>
-                <img
-                  src={arrowright}
-                  className="arrowRight"
-                  alt="Flèche indiquant la droite"
-                />
-              </button>
-            </div>
-            <p>
-              {current + 1} / {imageSlider.length}
-            </p>
+            {imageSlider &&
+              imageSlider.map((image, index) => (
+                <div
+                  key={index}
+                  className={
+                    index === current
+                      ? 'imgContainer imageOnDisplay'
+                      : 'imgContainer imageOffDisplay'
+                  }
+                >
+                  {index === current && (
+                    <img src={image} alt="Carrousel d'images" />
+                  )}
+                </div>
+              ))}
+            {imageSlider.length > 1 && (
+              <>
+                <div className="Arrows">
+                  <button alt="Image précédente" onClick={prevSlide}>
+                    <img
+                      src={arrowleft}
+                      className="arrowLeft"
+                      alt="Flèche indiquant la gauche"
+                    />
+                  </button>
+                  <button alt="Image suivante" onClick={nextSlide}>
+                    <img
+                      src={arrowright}
+                      className="arrowRight"
+                      alt="Flèche indiquant la droite"
+                    />
+                  </button>
+                </div>
+                <p>
+                  {current + 1} / {imageSlider.length}
+                </p>
+              </>
+            )}
           </>
         )}
-      </div>
-      {/* )} */}
-    </>
+      </>
+    </div>
   )
 }
 

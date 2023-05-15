@@ -1,5 +1,10 @@
 @import '../../utils/style/GlobalStyle.scss';
 
+.LoaderWrapper {
+  display: flex;
+  justify-content: center;
+}
+
 section {
   margin: 0px 100px;
   .CarrouselContainer {
