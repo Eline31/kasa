@@ -23,8 +23,8 @@ function Accomodation() {
   const description = dataAccomodation[0].description
   const equipments = dataAccomodation[0].equipments.map((equipment) => {
     return (
-      <span>
-        <p key={`${accomodationId}-${equipment}`}>{equipment}</p>
+      <span key={`${accomodationId}-${equipment}`}>
+        <p>{equipment}</p>
       </span>
     )
   })
