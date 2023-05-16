@@ -1,1 +1,0 @@
-import Collapse from './Collapse'

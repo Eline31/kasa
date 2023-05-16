@@ -1,14 +1,12 @@
 import { useParams } from 'react-router-dom'
 import Carrousel from '../../components/Carrousel/Carrousel'
 import data from '../../data/data.json'
-// import { useState, useEffect } from 'react'
 import Tag from '../../components/Tag/Tag.jsx'
 import Collapse from '../../components/Collapse/Collapse'
 import star from '../../assets/star.png'
 import fullstar from '../../assets/star-full.png'
 import './Accomodation.scss'
 import Error from '../Error/Error'
-// import ErrorAccomodation from '../../components/ErrorAccomodation.jsx'
 
 function Accomodation() {
   const accomodationId = useParams('id').id
@@ -35,10 +33,7 @@ function Accomodation() {
   return (
     <>
       <section>
-        <Carrousel
-          pictures={dataAccomodation[0].pictures}
-          // picture={dataAccomodation[0].pictures}
-        />
+        <Carrousel pictures={dataAccomodation[0].pictures} />
       </section>
       <section className="AccomodationPresentation">
         <div className="AccomodationContent">
