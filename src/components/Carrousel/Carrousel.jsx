@@ -16,9 +16,8 @@ function Carrousel({ pictures }) {
     pictures ? setImageSlider(pictures) : setIsLoading(true)
   }, [])
 
-
   const nextSlide = () => {
-    // Ici on verifie que les références ont bien été initialisées
+    // Ici on vérifie que les références ont bien été initialisées
     if (!currentDiv.current && !nextDiv.current) {
       return
     }
@@ -34,15 +33,15 @@ function Carrousel({ pictures }) {
       currentDiv.current.classList.remove('slide-next')
       nextDiv.current.classList.remove('slide-next')
     }, 500)
-
   }
+
   const prevSlide = () => {
     if (!prevDiv.current && !currentDiv.current) {
       return
     }
     prevDiv.current.classList.add('slide-prev')
     currentDiv.current.classList.add('slide-prev')
-    
+
     setTimeout(() => {
       if (current > 0) {
         setCurrent(current - 1)
@@ -70,37 +69,36 @@ function Carrousel({ pictures }) {
     return current + 1
   }
 
-
   return (
-    <div className="CarrouselContainer">
-      <>
-        {isLoading ? (
-          <div className="LoaderWrapper">
-            <Loader />
-          </div>
-        ) : (
+    <>
+      {isLoading ? (
+        <div className="LoaderWrapper">
+          <Loader />
+        </div>
+      ) : (
+        <div className="CarrouselContainer">
           <>
             {imageSlider && (
               <>
                 <div
                   ref={prevDiv}
-                  className='imgContainer'
+                  className="imgContainer"
                   style={{
                     left: `-100%`,
                     backgroundImage: `url(${imageSlider[getPrev()]})`,
                   }}
                 />
                 <div
-                ref={currentDiv}
-                className='imgContainer'
+                  ref={currentDiv}
+                  className="imgContainer"
                   style={{
                     left: `0`,
                     backgroundImage: `url(${imageSlider[current]})`,
                   }}
                 />
                 <div
-                ref={nextDiv}
-                className='imgContainer'
+                  ref={nextDiv}
+                  className="imgContainer"
                   style={{
                     left: `100%`,
                     backgroundImage: `url(${imageSlider[getNext()]})`,
@@ -132,9 +130,9 @@ function Carrousel({ pictures }) {
               </>
             )}
           </>
-        )}
-      </>
-    </div>
+        </div>
+      )}
+    </>
   )
 }
 
