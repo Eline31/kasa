@@ -13,9 +13,7 @@ function Accomodation() {
   const dataAccomodation = data.filter((data) => data.id === accomodationId)
   const ids = data.map((data) => data.id)
 
-  if (ids.includes(accomodationId)) {
-    console.log('Le logement existe')
-  } else {
+  if (!ids.includes(accomodationId)) {
     return <Error message="Le logement recherché n'existe pas." />
   }
 

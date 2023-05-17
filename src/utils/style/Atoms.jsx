@@ -19,11 +19,21 @@ const rotate = keyframes`
 `
 
 export const Loader = styled.div`
-  padding: 10px;
-  border: 6px solid $primary-color;
-  border-bottom-color: transparent;
-  border-radius: 22px;
+  background: linear-gradient(#ff6060, transparent);
+  border-radius: 50%;
   animation: ${rotate} 1s infinite linear;
   height: 30px;
   width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  ::after {
+    content: '';
+    width: 25px;
+    height: 25px;
+    background: white;
+    position: absolute;
+    border-radius: 50%;
+  }
 `
