@@ -18,11 +18,14 @@ function Carrousel({ pictures }) {
 
   //Remplissage du tableau d'images grâce à la props "pictures"
   useEffect(() => {
-    pictures ? setImageSlider(pictures) : setIsLoading(true)
+    setIsLoading(true)
+    pictures && setImageSlider(pictures)
+    setIsLoading(false)
   }, [])
 
   //Fonction de gestion du roulement du carrousel vers la droite
   const nextSlide = () => {
+    setIsLoading(true)
     // Ici on vérifie que les références ont bien été initialisées
     if (!currentDiv.current && !nextDiv.current) {
       return
@@ -40,11 +43,13 @@ function Carrousel({ pictures }) {
       //On supprime les classes créées précédemment
       currentDiv.current.classList.remove('slide-next')
       nextDiv.current.classList.remove('slide-next')
-    }, 500)
+    }, 595)
+    setIsLoading(false)
   }
 
   //Fonction de gestion du roulement du carrousel vers la gauche
   const prevSlide = () => {
+    setIsLoading(true)
     if (!prevDiv.current && !currentDiv.current) {
       return
     }
@@ -59,7 +64,8 @@ function Carrousel({ pictures }) {
       }
       prevDiv.current.classList.remove('slide-prev')
       currentDiv.current.classList.remove('slide-prev')
-    }, 500)
+    }, 595)
+    setIsLoading(false)
   }
 
   //Fonction de récupération de l'image précédente
