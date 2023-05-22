@@ -33,7 +33,7 @@ function Carrousel({ pictures }) {
     //Ajout de classes aux div en fonction de leur position
     currentDiv.current.classList.add('slide-next')
     nextDiv.current.classList.add('slide-next')
-    //Fait tourner le carrousel avec un décalage de 500ms pour permettre à l'animation de se terminer
+    //Fait tourner le carrousel avec un décalage de 601ms pour permettre à l'animation de se terminer
     setTimeout(() => {
       if (current < imageSlider.length - 1) {
         setCurrent(current + 1)
@@ -43,7 +43,7 @@ function Carrousel({ pictures }) {
       //On supprime les classes créées précédemment
       currentDiv.current.classList.remove('slide-next')
       nextDiv.current.classList.remove('slide-next')
-    }, 595)
+    }, 601)
     setIsLoading(false)
   }
 
@@ -62,9 +62,9 @@ function Carrousel({ pictures }) {
       } else if (current === 0) {
         setCurrent(imageSlider.length - 1)
       }
-      prevDiv.current.classList.remove('slide-prev')
       currentDiv.current.classList.remove('slide-prev')
-    }, 595)
+      prevDiv.current.classList.remove('slide-prev')
+    }, 601)
     setIsLoading(false)
   }
 
@@ -83,6 +83,24 @@ function Carrousel({ pictures }) {
     }
     return current + 1
   }
+
+  // useEffect(() => {
+  //   if (!prevDiv.current && !currentDiv.current) {
+  //     return
+  //   }
+  //   prevDiv.current.classList.add('slide-prev')
+  //   currentDiv.current.classList.add('slide-prev')
+  //   setTimeout(() => {
+  //     if (current > 0) {
+  //       setCurrent(current - 1)
+  //     } else if (current === 0) {
+  //       setCurrent(imageSlider.length - 1)
+  //     }
+  //     currentDiv.current.classList.remove('slide-prev')
+  //     prevDiv.current.classList.remove('slide-prev')
+  //   }, 601)
+  //   setIsLoading(false)
+  // }, [prevSlide])
 
   return (
     <div className="CarrouselContainer">
@@ -106,7 +124,7 @@ function Carrousel({ pictures }) {
                 ref={currentDiv}
                 className="imgContainer"
                 style={{
-                  left: `0`,
+                  left: 0,
                   backgroundImage: `url(${imageSlider[current]})`,
                 }}
               />
