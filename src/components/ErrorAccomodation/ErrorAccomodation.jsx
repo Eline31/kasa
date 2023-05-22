@@ -7,7 +7,7 @@ function ErrorAccomodation() {
   console.error(error)
   return (
     <div className="ErrorContainer">
-      <h1>500</h1>
+      <h1>404</h1>
       <p>Oups! L'accomodation que vous demandez n'existe pas.</p>
       <Link className="BackHomepage" to="/">
         Retourner sur la page d'accueil
