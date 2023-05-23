@@ -6,7 +6,7 @@ import Collapse from '../../components/Collapse/Collapse'
 import star from '../../assets/star.png'
 import fullstar from '../../assets/star-full.png'
 import './Accomodation.scss'
-import Error from '../Error/Error'
+// import Error from '../Error/Error'
 
 function Accomodation() {
   const accomodationId = useParams('id').id
@@ -14,7 +14,7 @@ function Accomodation() {
   const ids = data.map((data) => data.id)
 
   if (!ids.includes(accomodationId)) {
-    return <Error message="Le logement recherché n'existe pas." />
+    throw Error("Le logement recherché n'existe pas.")
   }
 
   const name = dataAccomodation[0].host.name.split(' ')

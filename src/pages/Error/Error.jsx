@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useRouteError } from 'react-router-dom'
 import './Error.scss'
 
 function Error({ message }) {
+  const error = useRouteError()
+  console.error(error)
   return (
     <div className="ErrorContainer">
       <h1>404</h1>
