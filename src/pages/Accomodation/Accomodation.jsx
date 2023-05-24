@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import Carrousel from '../../components/Carrousel/Carrousel'
 import data from '../../data/data.json'
 import Tag from '../../components/Tag/Tag.jsx'
@@ -6,16 +7,22 @@ import Collapse from '../../components/Collapse/Collapse'
 import star from '../../assets/star.png'
 import fullstar from '../../assets/star-full.png'
 import './Accomodation.scss'
-// import Error from '../Error/Error'
+import Error from '../Error/Error'
 
 function Accomodation() {
   const accomodationId = useParams('id').id
   const dataAccomodation = data.filter((data) => data.id === accomodationId)
   const ids = data.map((data) => data.id)
+  const navigate = useNavigate()
 
-  if (!ids.includes(accomodationId)) {
-    throw Error("Le logement recherché n'existe pas.")
-  }
+  useEffect(() => {
+    if (!ids.includes(accomodationId)) {
+      //React router DOM V6 navigation par programme
+      navigate('*', { replace: true })
+      return <Error message="Le logement recherché n'existe pas" />
+      // throw Error("Le logement recherché n'existe pas.")
+    }
+  }, [])
 
   const name = dataAccomodation[0].host.name.split(' ')
   const rating = dataAccomodation[0].rating
