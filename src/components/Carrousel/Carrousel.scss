@@ -8,7 +8,6 @@ section {
     height: 415px;
     border-radius: 25px;
     overflow: hidden;
-    // width: 100%;
     .LoaderWrapper {
       display: flex;
       justify-content: center;
@@ -17,37 +16,23 @@ section {
       height: 100%;
       z-index: 10;
     }
-    .images {
-      display: flex;
-      .imgContainer {
-        width: 100%;
+    .imgContainer {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      img {
+        object-fit: cover;
         height: 100%;
-        position: absolute;
-        // transform: translateX(100%);
-        // transition: transform 600ms ease-in-out;
-        // transition: opacity 500ms ease-in-out;
-
-        // opacity: 0;
-        // &.active {
-        //   transform: translateX(0%);
-        //   // opacity: 1;
-        // }
-        img {
-          object-fit: cover;
-          // position: absolute;
-          height: 100%;
-          max-height: 415px;
-          width: 100%;
-          max-width: 1240px;
-          transform: translateX(100%);
-          transition: transform 600ms ease-in-out;
-          &.active {
-            transform: translateX(0%);
-            // opacity: 1;
-          }
-          &.inactive {
-            transform: translateX(-100%);
-          }
+        max-height: 415px;
+        width: 100%;
+        border-radius: 25px;
+        max-width: 1240px;
+        transition: all 600ms ease-in-out;
+        transform: scale(0.92);
+        opacity: 0;
+        &.active {
+          transform: scale(1);
+          opacity: 1;
         }
       }
     }

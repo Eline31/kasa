@@ -11,10 +11,6 @@ function Carrousel({ pictures }) {
   const [imageSlider, setImageSlider] = useState([])
   //useState du loader
   const [isLoading, setIsLoading] = useState(false)
-  //Création de références en fonction de la position de la slide
-  // const prevDiv = useRef(null)
-  // const currentDiv = useRef(null)
-  // const nextDiv = useRef(null)
 
   //Remplissage du tableau d'images grâce à la props "pictures"
   useEffect(() => {
@@ -53,20 +49,18 @@ function Carrousel({ pictures }) {
         </div>
       ) : (
         <>
-          <div className="images">
-            {imageSlider &&
-              imageSlider.map((image, index) => {
-                return (
-                  <div className="imgContainer" key={`image-${index}`}>
-                    <img
-                      src={image}
-                      alt="Carrousel d'images du logement"
-                      className={index === current ? 'active' : 'inactive'}
-                    />
-                  </div>
-                )
-              })}
-          </div>
+          {imageSlider &&
+            imageSlider.map((image, index) => {
+              return (
+                <div className="imgContainer" key={`image-${index}`}>
+                  <img
+                    src={image}
+                    alt="Carrousel d'images du logement"
+                    className={index === current ? 'active' : ''}
+                  />
+                </div>
+              )
+            })}
           {imageSlider.length > 1 && (
             <>
               <div className="Arrows">
