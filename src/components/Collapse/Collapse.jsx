@@ -13,7 +13,7 @@ function Collapse({ title, info }) {
           <img
             className={isOpen ? 'arrow arrow-up' : 'arrow arrow-down'}
             src={arrow}
-            alt={isOpen ? 'Cacher le contenu' : 'afficher le contenu'}
+            alt={isOpen ? 'Cacher le contenu' : 'Afficher le contenu'}
           />
         </h2>
         <div
