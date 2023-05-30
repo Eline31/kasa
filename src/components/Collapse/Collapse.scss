@@ -43,18 +43,14 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    visibility: visible;
     opacity: 1;
     height: 100%;
-    transform: translateY(1);
-    transition: all 300ms ease-in-out;
+    transition: all 500ms ease-in-out;
   }
   .collapse_content_hidden {
-    visibility: hidden;
     opacity: 0;
     height: 0;
-    transform: translateY(0);
-    transition: all 300ms ease-in-out;
+    transition: all 500ms ease-in-out;
   }
   @media only screen and (max-width: 1023px) {
     margin: 0px;
