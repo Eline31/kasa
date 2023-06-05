@@ -1,6 +1,6 @@
-import logo from '../../../assets/LOGO-1.svg'
+import logo from '../../assets/LOGO-1.svg'
 import { Link, useLocation } from 'react-router-dom'
-import { StyledLink } from '../../../utils/style/Atoms'
+import { StyledLink } from '../../utils/style/Atoms'
 import './Header.scss'
 
 function Header() {
