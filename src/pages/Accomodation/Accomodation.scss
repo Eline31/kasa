@@ -117,7 +117,8 @@
 
 .Details {
   display: flex;
-  margin: 0px 70px 20px 70px;
+  margin: 0px 70px 50px 70px;
+  height: 100%;
   div {
     width: 100%;
   }
@@ -125,7 +126,7 @@
     margin: 5px 0px;
   }
   @media only screen and (max-width: 1023px) {
-    margin: 0px 20px 20px 20px;
+    margin: 0px 20px 30px 20px;
     flex-direction: column;
     p {
       margin: 0px;

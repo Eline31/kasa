@@ -10,4 +10,11 @@ $secondary-color: #f6f6f6;
 body {
   margin: auto;
   max-width: 1440px;
+  height: 100vh;
+  #root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
 }

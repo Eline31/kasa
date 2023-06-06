@@ -7,18 +7,16 @@ function Collapse({ title, info }) {
 
   return (
     <>
-      <div className="CollapseContainer CollapseContainer__isClosed">
+      <div className="CollapseContainer">
         <h2 onClick={() => setIsOpen(!isOpen)}>
           {title}
           <img
-            className={isOpen ? 'arrow arrow-up' : 'arrow arrow-down'}
+            className={isOpen ? 'arrow arrow__up' : 'arrow arrow__down'}
             src={arrow}
             alt={isOpen ? 'Cacher le contenu' : 'Afficher le contenu'}
           />
         </h2>
-        <div
-          className={isOpen ? 'collapse_content' : 'collapse_content_hidden'}
-        >
+        <div className={isOpen ? 'content content__active' : 'content'}>
           {info}
         </div>
       </div>
